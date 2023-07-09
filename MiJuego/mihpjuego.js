@@ -35,11 +35,11 @@ let desene = 5
 
 function iniciarjuego(){
     
-	sectionencan.style.display = 'none'
-	sectionrein.style.display = 'none'
-	sectionelien.style.display = 'none'	
-	sectionmamae.style.display = 'none'	
-    sectionmen.style.display = 'none'	
+	//sectionencan.style.display = 'none'
+	//sectionrein.style.display = 'none'
+	//sectionelien.style.display = 'none'	
+	//sectionmamae.style.display = 'none'	
+    //sectionmen.style.display = 'none'	
 	botonMago.addEventListener('click', seleccionar_mago)
     esp.addEventListener('click', espeliarmus)
 	pat.addEventListener('click', espectru)
@@ -57,10 +57,10 @@ function seleccionar_mago(){
   let container = document.getElementById('foto_mago')
   
 
-  sectionmago.style.display = 'none'	
-  sectionencan.style.display = 'flex'
-  sectionelien.style.display = 'flex'
-  sectionmamae.style.display = 'flex'
+  //sectionmago.style.display = 'none'	
+  //sectionencan.style.display = 'flex'
+  //sectionelien.style.display = 'flex'
+  //sectionmamae.style.display = 'flex'
 
 	if (inputHarry.checked){
 		spanMago.innerHTML = "Harry Potter"
@@ -236,10 +236,10 @@ function combate(){
 
 function crearmensaje(ganador){
 	
-	sectionmen.style.display = 'flex'
+	//sectionmen.style.display = 'flex'
 	let parrafo = document.createElement('p')
-	sectionelien.style.display = 'none'
-	sectionencan.style.display = 'flex'
+	//sectionelien.style.display = 'none'
+	//sectionencan.style.display = 'flex'
 	//bodyto.addEventListener('click', ultima)
 
 	parrafo.innerHTML = 'Tu mago ataco con ' + ataqueMago + ' y el mago enemigo ataco con ' +ataqueEnemigo+ ' ' +ganador
@@ -249,20 +249,20 @@ function crearmensaje(ganador){
 
 function ultima(){
 	
-    sectionmamae.style.display = 'flex'
+    //sectionmamae.style.display = 'flex'
     //sectionmen.style.display = 'flex'
 	
 	if (desene < 1){
 		    //bodyto.disabled = true
-	        sectionrein.style.display = 'flex'
+	        //sectionrein.style.display = 'flex'
 			conteinerreini.innerHTML =  '<img src="C:/Users/User/Desktop/Dieseño_web/MiJuego/ganaste.png" width="1200px" height="250px">'	
 	} else if (desmag < 1){
 		    //bodyto.disabled = true
-	        sectionrein.style.display = 'flex'	
+	        //sectionrein.style.display = 'flex'	
 			conteinerreini.innerHTML =  '<img src="C:/Users/User/Desktop/Dieseño_web/MiJuego/perdiste.png" width="1200px" height="250px">'
 		}else{
-	    sectionelien.style.display = 'flex'
-	    sectionencan.style.display = 'flex'
+	    //sectionelien.style.display = 'flex'
+	    //sectionencan.style.display = 'flex'
 	}
 }
 
