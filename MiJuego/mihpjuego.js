@@ -255,11 +255,11 @@ function ultima(){
 	if (desene < 1){
 		    //bodyto.disabled = true
 	        //sectionrein.style.display = 'flex'
-			conteinerreini.innerHTML =  '<img src="C:/Users/User/Desktop/Dieseño_web/MiJuego/ganaste.png" width="1200px" height="250px">'	
+			conteinerreini.innerHTML =  '<img src="/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/ganaste.png" width="1200px" height="250px">'	
 	} else if (desmag < 1){
 		    //bodyto.disabled = true
 	        //sectionrein.style.display = 'flex'	
-			conteinerreini.innerHTML =  '<img src="C:/Users/User/Desktop/Dieseño_web/MiJuego/perdiste.png" width="1200px" height="250px">'
+			conteinerreini.innerHTML =  '<img src="/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/perdiste.png" width="1200px" height="250px">'
 		}else{
 	    //sectionelien.style.display = 'flex'
 	    //sectionencan.style.display = 'flex'
