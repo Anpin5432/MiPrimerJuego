@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+body {
+    /*https://w0.peakpx.com/wallpaper/290/679/HD-wallpaper-harry-potter-harry-potter-and-the-chamber-of-secrets-hogwarts-castle.jpg*/
+    /*Segunda opcion para el background*/
+    background-image: url(https://images4.alphacoders.com/843/thumb-1920-84314.jpg); 
+    background-size: cover;
+}
+#imagentitulo {
+    display: flex;
+    justify-content: center;
+}
+/*El punto . se utiliza para hacer referencia a una clase, que es el atributo que se le dio en HTML */
+/*El numeral # se utiliza para hacer referencia al ID */
+
+/*TIPOS DE DISPLAY*/
+/* Display Block: aquellos que ocupan toda la pantalla de izquierda a derecha */
+/* Display inline: aquellos que no ocupan toda la pantalla si no parte de ella */
+/* el tipo de display depende del tamaño por defecto que este tenga*/
+
+#eli{
+    display: flex;
+    /*justify-content: center;*/
+    color: aliceblue;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+#css {
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+input{
+    display: none;
+    /*Lo usamos para que los input no esten visibles*/
+}
+
+input:checked + label{
+    width: 500px;
+    /*Lo usamos para que el usuario pueda ver que algo se ha seleccionado*/
+}
+
+#hp{
+    background-image: url(https://media.revistavanityfair.es/photos/60e84a97bb9e71d46fd8d1f4/1:1/w_916,h_916,c_limit/39713.jpg);
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+#herm{
+    background-image: url(https://static.wikia.nocookie.net/warnerbros/images/f/f7/Hermione2.jpg/revision/latest/scale-to-width-down/373?cb=20221109054851&path-prefix=es);
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+#dumb{
+    background-image: url(https://static.wikia.nocookie.net/wikihp/images/8/88/Dumbledore.jpg/revision/latest/scale-to-width-down/423?cb=20090911073332&path-prefix=es);
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+#vold{
+    background-image: url(https://www.clarin.com/img/2020/09/02/lord-voldemort-es-el-archi___1el72Rtky_1256x620__1.jpg);
+    background-size: 100% 100%;
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+#nevl{
+    background-image: url(https://static.wikia.nocookie.net/esharrypotter/images/2/20/NevilleHBP.jpg/revision/latest/scale-to-width-down/226?cb=20150523213436);
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+#jiny{
+    background-image: url(https://img.allvipp.com/www-promipool-de/image/upload/c_fill,g_faces,w_1200,h_900,q_auto:eco,f_webp/Bonnie_Wright_asi_se_ve_Ginny_Weasley_de_Harry_Potter_en_2020_1_200722_gh0h9z0jxx);
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+#sec-boton-mago {
+    display: flex;
+    justify-content: center;
+    width: 90PX;
+    height: 60px;
+    margin: auto;
+}
+
+#boton-mago{
+    background-color: #302929;
+}
+
+#encan { 
+    display: flex;
+    flex-direction: center;
+    width: 90PX;
+    height: 60px;
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+#elien{
+    display: flex;
+    justify-content: center;
+}
+
+#mamae{
+    display: flex;
+}
+#mae{
+    display: flex;
+    margin-left: 750px;
+    color: #c4cbcc;
+}
+
+#elije-encantamiento{
+    justify-content: space-evenly;
+    height: 300px;
+    gap: 30px;
+
+    
+}
+
+#boton-esp{
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+#boton-pat{
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+#boton-red{
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+#boton-cru{
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+#boton-imp{
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+#boton-ava{
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+#separados{
+    display: flex;
+    flex-direction: column;
+}
+
+#Mensaje{
+    display: flex;
+    flex-direction: column;
+}
+
+#Reinicia{
+    flex-direction: column;
+    align-items: end;
+}
+
+
+
+
+
