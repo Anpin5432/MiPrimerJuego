@@ -50,54 +50,6 @@ input:checked + label{
 }
 
 
-
-
-
-#herm{
-    background-image: url(https://static.wikia.nocookie.net/warnerbros/images/f/f7/Hermione2.jpg/revision/latest/scale-to-width-down/373?cb=20221109054851&path-prefix=es);
-    background-size: cover;
-    width: 150px;
-    height: 150px;
-    box-sizing: border-box;
-    margin: 10px;
-}
-
-#dumb{
-    background-image: url(https://static.wikia.nocookie.net/wikihp/images/8/88/Dumbledore.jpg/revision/latest/scale-to-width-down/423?cb=20090911073332&path-prefix=es);
-    background-size: cover;
-    width: 150px;
-    height: 150px;
-    box-sizing: border-box;
-    margin: 10px;
-}
-
-#vold{
-    background-image: url(https://www.clarin.com/img/2020/09/02/lord-voldemort-es-el-archi___1el72Rtky_1256x620__1.jpg);
-    background-size: 100% 100%;
-    width: 150px;
-    height: 150px;
-    box-sizing: border-box;
-    margin: 10px;
-}
-
-#nevl{
-    background-image: url(https://static.wikia.nocookie.net/esharrypotter/images/2/20/NevilleHBP.jpg/revision/latest/scale-to-width-down/226?cb=20150523213436);
-    background-size: cover;
-    width: 150px;
-    height: 150px;
-    box-sizing: border-box;
-    margin: 10px;
-}
-
-#jiny{
-    background-image: url(https://img.allvipp.com/www-promipool-de/image/upload/c_fill,g_faces,w_1200,h_900,q_auto:eco,f_webp/Bonnie_Wright_asi_se_ve_Ginny_Weasley_de_Harry_Potter_en_2020_1_200722_gh0h9z0jxx);
-    background-size: cover;
-    width: 150px;
-    height: 150px;
-    box-sizing: border-box;
-    margin: 10px;
-}
-
 #sec-boton-mago {
     display: flex;
     justify-content: center;
