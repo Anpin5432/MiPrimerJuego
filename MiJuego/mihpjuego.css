@@ -25,10 +25,18 @@ body {
     font-family: 'Shadows Into Light', cursive;
 }
 
-#css {
+.css {
     display: flex;
     justify-content: space-evenly;
     
+}
+
+.css img {
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    margin: 10px;
 }
 
 input{
@@ -41,14 +49,9 @@ input:checked + label{
     /*Lo usamos para que el usuario pueda ver que algo se ha seleccionado*/
 }
 
-#hp{
-    background-image: url(https://media.revistavanityfair.es/photos/60e84a97bb9e71d46fd8d1f4/1:1/w_916,h_916,c_limit/39713.jpg);
-    background-size: cover;
-    width: 150px;
-    height: 150px;
-    box-sizing: border-box;
-    margin: 10px;
-}
+
+
+
 
 #herm{
     background-image: url(https://static.wikia.nocookie.net/warnerbros/images/f/f7/Hermione2.jpg/revision/latest/scale-to-width-down/373?cb=20221109054851&path-prefix=es);

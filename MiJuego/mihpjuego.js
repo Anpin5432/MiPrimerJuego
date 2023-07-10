@@ -24,8 +24,10 @@ let spanvidam = document.getElementById('vidas-mago')
 let spanvidaene = document.getElementById('vidas-enemigo')
 let bodyto = document.getElementById('ult-men') 
 let conteinerreini = document.getElementById('imgreini')
+let opcionDeMago
+let contenedordeMago = document.getElementById('contenedorMagos')
 
-
+let magos = []
 let ataqueMago 
 let ataqueEnemigo
 let numatmag
@@ -41,10 +43,15 @@ class Mago {
 	}
 }
 
-let Harry = new Mago ('Harry', 'https://media.revistavanityfair.es/photos/60e84a97bb9e71d46fd8d1f4/1:1/w_916,h_916,c_limit/39713.jpg', 5)
+let Harry = new Mago ('Harry', "https://media.revistavanityfair.es/photos/60e84a97bb9e71d46fd8d1f4/1:1/w_916,h_916,c_limit/39713.jpg", 5)
+let Hermioni = new Mago ('Hermioni', 'https://static.wikia.nocookie.net/warnerbros/images/f/f7/Hermione2.jpg/revision/latest/scale-to-width-down/373?cb=20221109054851&path-prefix=es', 5)
+let Dumbledore = new Mago ('Dumbledore', 'https://static.wikia.nocookie.net/wikihp/images/8/88/Dumbledore.jpg/revision/latest/scale-to-width-down/423?cb=20090911073332&path-prefix=es', 5)
+let Voldemort = new Mago ('Voldemort', 'https://www.clarin.com/img/2020/09/02/lord-voldemort-es-el-archi___1el72Rtky_1256x620__1.jpg', 5)
+let Neville = new Mago ('Neville', 'https://static.wikia.nocookie.net/esharrypotter/images/2/20/NevilleHBP.jpg/revision/latest/scale-to-width-down/226?cb=20150523213436', 5)
+let Jinny = new Mago ('Jinny', 'https://img.allvipp.com/www-promipool-de/image/upload/c_fill,g_faces,w_1200,h_900,q_auto:eco,f_webp/Bonnie_Wright_asi_se_ve_Ginny_Weasley_de_Harry_Potter_en_2020_1_200722_gh0h9z0jxx', 5)
 
-Mago.push(Harry)
-console.log(Mago)
+magos.push(Harry, Hermioni, Dumbledore, Voldemort, Neville, Jinny)
+
 
 function iniciarjuego(){
     
@@ -53,6 +60,15 @@ function iniciarjuego(){
 	//sectionelien.style.display = 'none'	
 	//sectionmamae.style.display = 'none'	
     //sectionmen.style.display = 'none'	
+    magos.forEach((mago) => {
+	opcionDeMago = `
+	<input type="radio" name="mago" id=${Mago.nombre}>
+	<label id="hp" for=${Mago.nombre}><img src=${Mago.foto}></label> 
+    `
+	contenedordeMago.innerHTML += opcionDeMago
+
+	})
+
 	botonMago.addEventListener('click', seleccionar_mago)
     esp.addEventListener('click', espeliarmus)
 	pat.addEventListener('click', espectru)
