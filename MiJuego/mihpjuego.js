@@ -12,12 +12,8 @@ let imp = document.getElementById('boton-imp')
 let ava = document.getElementById('boton-ava')
 let rein = document.getElementById('boton-reiniciar')
 let sectionmago = document.getElementById('Elije-tu-mago')
-let inputHarry = document.getElementById('Harry')
-let inputHermioni = document.getElementById('Hermioni')
-let inputDumbledore = document.getElementById('Dumbledore')
-let inputVoldmort = document.getElementById('Voldemort')
-let inputNeville = document.getElementById('Neville')
-let inputJinny = document.getElementById('Jinny')
+
+
 let spanMago = document.getElementById('mago')
 let spanMagoEnemigo = document.getElementById('mago-enemigo')
 let spanvidam = document.getElementById('vidas-mago')
@@ -28,6 +24,13 @@ let opcionDeMago
 let contenedordeMago = document.getElementById('contenedorMagos')
 
 let magos = []
+let inputHarry 
+let inputHermioni 
+let inputDumbledore 
+let inputVoldmort
+let inputNeville 
+let inputJinny 
+
 let ataqueMago 
 let ataqueEnemigo
 let numatmag
@@ -60,13 +63,19 @@ function iniciarjuego(){
 	//sectionelien.style.display = 'none'	
 	//sectionmamae.style.display = 'none'	
     //sectionmen.style.display = 'none'	
-    magos.forEach((mago) => {
+    magos.forEach((Mago) => {
 	opcionDeMago = `
 	<input type="radio" name="mago" id=${Mago.nombre}>
 	<label id="hp" for=${Mago.nombre}><img src=${Mago.foto}></label> 
     `
 	contenedordeMago.innerHTML += opcionDeMago
-
+    
+	inputHarry = document.getElementById('Harry')
+	inputHermioni = document.getElementById('Hermioni')
+	inputDumbledore = document.getElementById('Dumbledore')
+    inputVoldmort = document.getElementById('Voldemort')
+    inputNeville = document.getElementById('Neville')
+    inputJinny = document.getElementById('Jinny')
 	})
 
 	botonMago.addEventListener('click', seleccionar_mago)

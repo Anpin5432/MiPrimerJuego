@@ -45,7 +45,7 @@ input{
 }
 
 input:checked + label{
-    width: 500px;
+    background-color: #112f58;
     /*Lo usamos para que el usuario pueda ver que algo se ha seleccionado*/
 }
 
