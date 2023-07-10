@@ -41,7 +41,7 @@ class Mago {
 	}
 }
 
-let Harry = ("Harry", "https://media.revistavanityfair.es/photos/60e84a97bb9e71d46fd8d1f4/1:1/w_916,h_916,c_limit/39713.jpg", 5)
+let Harry = new Mago ("Harry", "https://media.revistavanityfair.es/photos/60e84a97bb9e71d46fd8d1f4/1:1/w_916,h_916,c_limit/39713.jpg", 5)
 
 Mago.push(Harry)
 console.log(Mago)
