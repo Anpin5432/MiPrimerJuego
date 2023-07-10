@@ -33,6 +33,19 @@ let numatacen
 let desmag = 5
 let desene = 5
 
+class Mago {
+	constructor (nombre, foto, vidas){
+		this.nombre = nombre
+		this.foto = foto 
+		this.vidas = vidas
+	}
+}
+
+let Harry = ("Harry", "https://media.revistavanityfair.es/photos/60e84a97bb9e71d46fd8d1f4/1:1/w_916,h_916,c_limit/39713.jpg", 5)
+
+Mago.push(Harry)
+console.log(Mago)
+
 function iniciarjuego(){
     
 	//sectionencan.style.display = 'none'
