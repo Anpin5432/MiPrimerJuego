@@ -269,27 +269,26 @@ function secuenciaAtaques(){
 		boton.addEventListener('click', (e) =>{
 			if (e.target.textContent === 'Espeliarmus 🧹'){
 				ataqueJugador.push('Espeliarmus')
-				console.log(ataqueJugador)
+
 				boton.style.background = '#112f58'
 			} else if (e.target.textContent === 'Espectru Patronus 🐘' ){
 				ataqueJugador.push('Espectru Patronus')
-				console.log(ataqueJugador)
+
 				boton.style.background = '#112f58'
 			} else if (e.target.textContent === 'Reducto 🤪'){
 				ataqueJugador.push('Reducto')
-				console.log(ataqueJugador)
+
 				boton.style.background = '#112f58'
 			} else if (e.target.textContent === 'Crucio 💦'){
 				ataqueJugador.push('Crucio')
-				console.log(ataqueJugador)
+
 				boton.style.background = '#112f58'
 			} else if (e.target.textContent === 'Imperio ☘'){
 				ataqueJugador.push('Imperio')
-				console.log(ataqueJugador)
 				boton.style.background = '#112f58'
 			} else {
 				ataqueJugador.push('Avada Kedavra')
-				console.log(ataqueJugador)
+
 				boton.style.background = '#112f58'
 			}
 			seleccionar_ataque_enemigo()
@@ -331,14 +330,21 @@ function seleccionar_ataque_enemigo(){
 			numatacen = 6
 		} 
     console.log(ataqueEnemigo)
-	combate()
+	iniciarPelea()
 	
    }
 
+function iniciarPelea (){
+	if (ataqueJugador.length === 5){
+		combate()
+	}
+}   
 
 function combate(){
-	let container = document.getElementById('foto_mago')
-    let container2 = document.getElementById('foto_magoenemigo')
+
+	for (let index = 0; index < ataqueJugador.length; index++){
+		console.log(ataqueJugador[index])
+	}
 	if ((desene > -1) && (desmag > -1)){
 		if (desene < 1){
 	        sectionrein.style.display = 'block'
