@@ -4,12 +4,7 @@ let sectionelien = document.getElementById('elien')
 let sectionmamae = document.getElementById('mamae')
 let sectionmen = document.getElementById('message')
 let botonMago = document.getElementById('boton-mago')
-let esp = document.getElementById('boton-esp')
-let pat = document.getElementById('boton-pat')
-let red = document.getElementById('boton-red')
-let cru = document.getElementById('boton-cru')
-let imp = document.getElementById('boton-imp')
-let ava = document.getElementById('boton-ava')
+
 let rein = document.getElementById('boton-reiniciar')
 let sectionmago = document.getElementById('Elije-tu-mago')
 
@@ -22,6 +17,7 @@ let bodyto = document.getElementById('ult-men')
 let conteinerreini = document.getElementById('imgreini')
 let opcionDeMago
 let contenedordeMago = document.getElementById('contenedorMagos')
+let contenedorAtaques = document.getElementById('contenedorAtaques')
 
 let magos = []
 let inputHarry 
@@ -32,8 +28,19 @@ let inputNeville
 let inputJinny 
 let imagenes = []
 let magoJugador
+let ataquesMago 
+let esp
+let pat
+let red
+let cru
+let imp
+let ava
+let botones = []
+let ataqueJugador = []
+let ataquesMagoEnemigo = []
+
 let ataqueMago 
-let ataqueEnemigo
+let ataqueEnemigo = []
 let numatmag
 let numatacen
 let desmag = 5
@@ -169,12 +176,7 @@ function iniciarjuego(){
 	})
 
 	botonMago.addEventListener('click', seleccionar_mago)
-    esp.addEventListener('click', espeliarmus)
-	pat.addEventListener('click', espectru)
-	red.addEventListener('click', reducto)
-	cru.addEventListener('click', crucio)
-	imp.addEventListener('click', imperio)
-	ava.addEventListener('click', avada)
+    
 	rein.addEventListener('click', reiniciar)
 }
 	//Esta funcion la usamos para poner el script en el head de HTML
@@ -235,12 +237,70 @@ function extraerAtaques(magoJugador) {
             ataques = magos[i].ataques
 		}
 	}
-	console.log(ataques)
+	mostrarAtaques(ataques)
+}
+
+function mostrarAtaques(ataques){
+	ataques.forEach((ataque) => {
+		ataquesMago = `
+		<button id=${ataque.id} class="BAtaque">${ataque.nombre}</button>
+		`
+		contenedorAtaques.innerHTML += ataquesMago
+	})
+	esp = document.getElementById('boton-esp')
+	pat = document.getElementById('boton-pat')
+	red = document.getElementById('boton-red')
+	cru = document.getElementById('boton-cru')
+	imp = document.getElementById('boton-imp')
+	ava = document.getElementById('boton-ava')
+    botones = document.querySelectorAll('.BAtaque')
+	console.log(botones)
+    secuenciaAtaques()
+	/*esp.addEventListener('click', espeliarmus)
+	pat.addEventListener('click', espectru)
+	red.addEventListener('click', reducto)
+	cru.addEventListener('click', crucio)
+	imp.addEventListener('click', imperio)
+	ava.addEventListener('click', avada)*/
+}
+
+function secuenciaAtaques(){
+	botones.forEach((boton) =>{
+		boton.addEventListener('click', (e) =>{
+			if (e.target.textContent === 'Espeliarmus 🧹'){
+				ataqueJugador.push('Espeliarmus')
+				console.log(ataqueJugador)
+				boton.style.background = '#112f58'
+			} else if (e.target.textContent === 'Espectru Patronus 🐘' ){
+				ataqueJugador.push('Espectru Patronus')
+				console.log(ataqueJugador)
+				boton.style.background = '#112f58'
+			} else if (e.target.textContent === 'Reducto 🤪'){
+				ataqueJugador.push('Reducto')
+				console.log(ataqueJugador)
+				boton.style.background = '#112f58'
+			} else if (e.target.textContent === 'Crucio 💦'){
+				ataqueJugador.push('Crucio')
+				console.log(ataqueJugador)
+				boton.style.background = '#112f58'
+			} else if (e.target.textContent === 'Imperio ☘'){
+				ataqueJugador.push('Imperio')
+				console.log(ataqueJugador)
+				boton.style.background = '#112f58'
+			} else {
+				ataqueJugador.push('Avada Kedavra')
+				console.log(ataqueJugador)
+				boton.style.background = '#112f58'
+			}
+			seleccionar_ataque_enemigo()
+		})
+	})
 }
 
 function seleccionar_mago_enemigo(){
 	let mag = aleatorio(0, magos.length - 1)
 	spanMagoEnemigo.innerHTML = magos[mag].nombre 
+	ataquesMagoEnemigo = magos[mag].ataques
 	let container2 = document.getElementById('foto_magoenemigo')
 	container2.innerHTML = `
                   <img id="foto_magoenemigo" src=${imagenes[mag].src} width="250px" height="330px">'
@@ -248,62 +308,29 @@ function seleccionar_mago_enemigo(){
 }
 
 
-
-function espeliarmus(){
-	ataqueMago = "Espeliarmus"
-	numatmag = 3
-	seleccionar_ataque_enemigo()
-}
-function espectru(){
-	ataqueMago = "Espectru Patronus"
-	numatmag = 1
-	seleccionar_ataque_enemigo()
-}
-function reducto(){
-	ataqueMago = "Reducto"
-	numatmag = 2
-	seleccionar_ataque_enemigo()
-}
-function crucio(){
-	ataqueMago = "Crucio"
-	numatmag = 5
-	seleccionar_ataque_enemigo()
-}
-function imperio(){
-	ataqueMago = "Imperio"
-	numatmag = 4
-	seleccionar_ataque_enemigo()
-
-}
-function avada(){
-	ataqueMago = "Avada Kedavra"
-	numatmag = 6
-	seleccionar_ataque_enemigo()
-}
-
 function seleccionar_ataque_enemigo(){
-	let ata = aleatorio(1, 6)
+	let ata = aleatorio(0, ataquesMagoEnemigo.length - 1)
 	
-		 if (ata == 1){
-			ataqueEnemigo = "Espeliarmus"
+		 if (ata == 0 || ata == 1){
+			ataqueEnemigo.push('Espeliarmus')
 			numatacen = 3
 		} else if (ata == 2){
-			ataqueEnemigo = "Espectru Patronus"
+			ataqueEnemigo.push('Espectru Patronus')
 			numatacen = 1
-		} else if (ata == 3){
-			ataqueEnemigo = "Reducto"
+		} else if (ata == 3 || ata == 7){
+			ataqueEnemigo.push('Reducto')
 			numatacen = 2
 		} else if (ata == 4){
-			ataqueEnemigo = "Crucio"
+			ataqueEnemigo.push('Crucio')
 			numatacen = 5
-		 } else if (ata == 5){
-			ataqueEnemigo = "Imperio"
+		 } else if (ata == 5 || ata == 8){
+			ataqueEnemigo.push('Imperio')
 			numatacen = 4
 		 } else if (ata == 6){
-			ataqueEnemigo = "Avada Kedavra"
+			ataqueEnemigo.push('Avada Kedavra')
 			numatacen = 6
 		} 
-   
+    console.log(ataqueEnemigo)
 	combate()
 	
    }
