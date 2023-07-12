@@ -38,6 +38,8 @@ let ava
 let botones = []
 let ataqueJugador = []
 let ataquesMagoEnemigo = []
+let indexAtaqueJugador
+let indexAtaqueEnemigo
 
 let ataqueMago 
 let ataqueEnemigo = []
@@ -340,11 +342,21 @@ function iniciarPelea (){
 	}
 }   
 
+function indexAmbosOponente(jugador, enemigo) {
+	indexAtaqueJugador = ataqueJugador[jugador]
+	indexAtaqueEnemigo = ataqueEnemigo[enemigo]
+}
+
 function combate(){
 
 	for (let index = 0; index < ataqueJugador.length; index++){
-		console.log(ataqueJugador[index])
+		if(ataqueJugador[index] === ataqueEnemigo[index]){
+			indexAmbosOponente(index, index)
+			crearmensaje("EMPATE")
+		}
 	}
+	console.log(indexAtaqueJugador)
+	console.log(indexAtaqueEnemigo)
 	if ((desene > -1) && (desmag > -1)){
 		if (desene < 1){
 	        sectionrein.style.display = 'block'
@@ -395,7 +407,7 @@ function crearmensaje(ganador){
 	//sectionencan.style.display = 'flex'
 	//bodyto.addEventListener('click', ultima)
 
-	parrafo.innerHTML = 'Tu mago ataco con ' + ataqueMago + ' y el mago enemigo ataco con ' +ataqueEnemigo+ ' ' +ganador
+	parrafo.innerHTML = 'Tu mago ataco con ' + indexAtaqueJugador + ' y el mago enemigo ataco con ' +indexAtaqueEnemigo+ ' ' +ganador
 	sectionmen.appendChild(parrafo)
 		
 }
