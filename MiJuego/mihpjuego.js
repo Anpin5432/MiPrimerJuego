@@ -40,13 +40,11 @@ let ataqueJugador = []
 let ataquesMagoEnemigo = []
 let indexAtaqueJugador
 let indexAtaqueEnemigo
-
+let ganadas = 0
+let perdidas = 0
 let ataqueMago 
 let ataqueEnemigo = []
-let numatmag
-let numatacen
-let desmag = 5
-let desene = 5
+
 
 class Mago {
 	constructor (nombre, foto, vidas){
@@ -271,27 +269,28 @@ function secuenciaAtaques(){
 		boton.addEventListener('click', (e) =>{
 			if (e.target.textContent === 'Espeliarmus 🧹'){
 				ataqueJugador.push('Espeliarmus')
-
 				boton.style.background = '#112f58'
+				boton.disabled = true
 			} else if (e.target.textContent === 'Espectru Patronus 🐘' ){
 				ataqueJugador.push('Espectru Patronus')
-
 				boton.style.background = '#112f58'
+				boton.disabled = true
 			} else if (e.target.textContent === 'Reducto 🤪'){
 				ataqueJugador.push('Reducto')
-
 				boton.style.background = '#112f58'
+				boton.disabled = true
 			} else if (e.target.textContent === 'Crucio 💦'){
 				ataqueJugador.push('Crucio')
-
 				boton.style.background = '#112f58'
+				boton.disabled = true
 			} else if (e.target.textContent === 'Imperio ☘'){
 				ataqueJugador.push('Imperio')
 				boton.style.background = '#112f58'
+				boton.disabled = true
 			} else {
 				ataqueJugador.push('Avada Kedavra')
-
 				boton.style.background = '#112f58'
+				boton.disabled = true
 			}
 			seleccionar_ataque_enemigo()
 		})
@@ -331,9 +330,7 @@ function seleccionar_ataque_enemigo(){
 			ataqueEnemigo.push('Avada Kedavra')
 			numatacen = 6
 		} 
-    console.log(ataqueEnemigo)
 	iniciarPelea()
-	
    }
 
 function iniciarPelea (){
@@ -353,50 +350,26 @@ function combate(){
 		if(ataqueJugador[index] === ataqueEnemigo[index]){
 			indexAmbosOponente(index, index)
 			crearmensaje("EMPATE")
-		}
-	}
-	console.log(indexAtaqueJugador)
-	console.log(indexAtaqueEnemigo)
-	if ((desene > -1) && (desmag > -1)){
-		if (desene < 1){
-	        sectionrein.style.display = 'block'
-			
-			esp.disabled = true 
-			pat.disabled = true 
-			red.disabled = true 
-			cru.disabled = true 
-			imp.disabled = true 
-			ava.disabled = true 
-			spanvidaene.innerHTML = desene
-			alert("Usted Gana el Combate")
-		} else if (desmag < 1){
-	        sectionrein.style.display = 'block'
-			esp.disabled = true 
-			pat.disabled = true 
-			red.disabled = true 
-			cru.disabled = true 
-			imp.disabled = true 
-			ava.disabled = true 
-			spanvidam.innerHTML = desmag
-			alert("Enemigo Gana el Combate")
+			spanvidam.innerHTML = ganadas
+			spanvidaene.innerHTML = perdidas
+		} else if (ataqueJugador[index] > ataqueEnemigo[index]){
+			indexAmbosOponente(index, index)
+			crearmensaje("Mago Gana")
+			ganadas++
+			spanvidam.innerHTML = ganadas
+			spanvidaene.innerHTML = perdidas
+		} else if (ataqueJugador[index] < ataqueEnemigo[index]){
+			indexAmbosOponente(index, index)
+			crearmensaje("Mago Enemigo Gana")
+			perdidas++
+			spanvidam.innerHTML = ganadas
+			spanvidaene.innerHTML = perdidas
 		}else{
-			
-		   if (numatmag == numatacen){
-			crearmensaje("Emapate")
-	        container.style.display = 'none'
-			container2.style.display = 'none'
-		 } else if (numatmag > numatacen){
-				crearmensaje("Usted Gana")
-				desene = desene - 1
-			    spanvidaene.innerHTML = desene	
-		} else{
-				crearmensaje("Usted Pierde")   
-				desmag = desmag - 1
-				spanvidam.innerHTML = desmag
-				
-			}
+			alert("Algo ocurre")
 		}
-   } 
+		console.log(index)
+	}
+	ultima()
 }	
 
 function crearmensaje(ganador){
@@ -417,17 +390,18 @@ function ultima(){
     //sectionmamae.style.display = 'flex'
     //sectionmen.style.display = 'flex'
 	
-	if (desene < 1){
+	if (ganadas > perdidas){
 		    //bodyto.disabled = true
 	        //sectionrein.style.display = 'flex'
 			conteinerreini.innerHTML =  '<img src="/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/ganaste.png" width="1200px" height="250px">'	
-	} else if (desmag < 1){
+	} else if (ganadas < perdidas){
 		    //bodyto.disabled = true
 	        //sectionrein.style.display = 'flex'	
 			conteinerreini.innerHTML =  '<img src="/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/perdiste.png" width="1200px" height="250px">'
 		}else{
 	    //sectionelien.style.display = 'flex'
 	    //sectionencan.style.display = 'flex'
+		seleccionar_mago()
 	}
 }
 
