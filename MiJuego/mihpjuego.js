@@ -19,6 +19,8 @@ let opcionDeMago
 let contenedordeMago = document.getElementById('contenedorMagos')
 let contenedorAtaques = document.getElementById('contenedorAtaques')
 
+const sectionVerMapa = document.getElementById('ver-mapa')
+
 let magos = []
 let inputHarry 
 let inputHermioni 
@@ -44,6 +46,10 @@ let ganadas = 0
 let perdidas = 0
 let ataqueMago 
 let ataqueEnemigo = []
+let lienzo = mapa.getContext("2d")
+let intervalo
+let mapaBackground = new Image()
+
 
 
 class Mago {
@@ -52,6 +58,14 @@ class Mago {
 		this.foto = foto 
 		this.vidas = vidas
 		this.ataques = []
+		this.x = 20
+		this.y = 30
+		this.ancho = 80
+		this.alto = 80
+		this.mapaFoto = new Image()
+		this.mapaFoto.src = foto
+		this.velocidadX = 0
+		this.velocidadY = 0
 	}
 }
 
@@ -155,11 +169,12 @@ imagenes.push(img1, img2, img3, img4, img5, img6)
 
 function iniciarjuego(){
     
-	//sectionencan.style.display = 'none'
-	//sectionrein.style.display = 'none'
-	//sectionelien.style.display = 'none'	
-	//sectionmamae.style.display = 'none'	
-    //sectionmen.style.display = 'none'	
+	sectionencan.style.display = 'none'
+	sectionrein.style.display = 'none'
+	sectionelien.style.display = 'none'	
+	sectionmamae.style.display = 'none'	
+    sectionmen.style.display = 'none'	
+	sectionVerMapa.style.display = 'none'
     magos.forEach((Mago) => {
 	opcionDeMago = `
 	<input type="radio" name="mago" id=${Mago.nombre}>
@@ -179,7 +194,6 @@ function iniciarjuego(){
     
 	rein.addEventListener('click', reiniciar)
 }
-	//Esta funcion la usamos para poner el script en el head de HTML
 
 
 function seleccionar_mago(){
@@ -187,10 +201,17 @@ function seleccionar_mago(){
   let container = document.getElementById('foto_mago')
   
 
-  //sectionmago.style.display = 'none'	
+  sectionmago.style.display = 'none'	
   //sectionencan.style.display = 'flex'
   //sectionelien.style.display = 'flex'
   //sectionmamae.style.display = 'flex'
+  sectionVerMapa.style.display = 'flex'
+  iniciarMapa()
+
+  
+  /*lienzo.fillRect(5,15,20,40)
+  (coordenada x,coordenada y, ancho, altura)*/
+
 
 	if (inputHarry.checked){
 		spanMago.innerHTML = inputHarry.id
@@ -256,12 +277,6 @@ function mostrarAtaques(ataques){
     botones = document.querySelectorAll('.BAtaque')
 	console.log(botones)
     secuenciaAtaques()
-	/*esp.addEventListener('click', espeliarmus)
-	pat.addEventListener('click', espectru)
-	red.addEventListener('click', reducto)
-	cru.addEventListener('click', crucio)
-	imp.addEventListener('click', imperio)
-	ava.addEventListener('click', avada)*/
 }
 
 function secuenciaAtaques(){
@@ -346,6 +361,12 @@ function indexAmbosOponente(jugador, enemigo) {
 
 function combate(){
 
+	sectionmen.style.display = 'flex'
+	sectionrein.style.display = 'flex'
+	sectionencan.style.display = 'none'
+    sectionelien.style.display = 'none'
+    sectionmamae.style.display = 'none'
+
 	for (let index = 0; index < ataqueJugador.length; index++){
 		if(ataqueJugador[index] === ataqueEnemigo[index]){
 			indexAmbosOponente(index, index)
@@ -411,6 +432,74 @@ function reiniciar(){
 
 function aleatorio(min, max){
 	return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+function pintarPersonaje() {
+	Harry.x = Harry.x + Harry.velocidadX
+	Harry.y = Harry.y + Harry.velocidadY
+	lienzo.clearRect(0,0, mapa.width, mapa.height)
+	//el parentesis de arriba limita el espacio en el que la funcion de limpiar se va a aplicar
+	lienzo.drawImage(
+		Harry.mapaFoto,
+		Harry.x,	
+		Harry.y,
+		Harry.ancho,
+		Harry.alto
+	  )
+}
+
+function moverDerecha(){
+	Harry.velocidadX = 5
+}
+
+function moverIzquierda(){
+	Harry.velocidadX = -5
+    pintarPersonaje()
+}
+
+function moverArriba(){
+	Harry.velocidadY = - 5
+    pintarPersonaje()
+}
+
+function moverAbajo(){
+	Harry.velocidadY = 5
+    pintarPersonaje()
+}
+
+function detenerMovimiento(){
+	Harry.velocidadX = 0
+	Harry.velocidadY = 0
+}
+
+function sePresionaUnaTecla(event) {
+	switch (event.key) {
+		case 'ArrowUp':
+			moverArriba()
+			break
+		case 'ArrowDown':
+		     moverAbajo()
+			 break	
+		case 'ArrowLeft':
+			moverIzquierda()
+			break
+		case 'ArrowRight':
+		    moverDerecha()
+			break
+		default:
+			break;
+					
+	}
+}
+
+function iniciarMapa() {
+mapa.width = 800
+mapa.height = 600
+
+intervalo = setInterval(pintarPersonaje, 50)
+
+  window.addEventListener('keydown', sePresionaUnaTecla)
+  window.addEventListener('keyup', detenerMovimiento)
 }
 
 window.addEventListener('load', iniciarjuego)
