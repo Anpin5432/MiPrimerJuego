@@ -54,28 +54,49 @@ mapaBackground.src = '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego
 
 
 class Mago {
-	constructor (nombre, foto, vidas, fotomapa, x=10, y=10){
+	constructor (nombre, foto, vidas, fotomapa, x=10, y=10, fotoMagoEnemigo){
 		this.nombre = nombre
 		this.foto = foto 
 		this.vidas = vidas
 		this.ataques = []
-		this.x = 20
-		this.y = 30
+		this.x = x
+		this.y = y
 		this.ancho = 80
 		this.alto = 80
 		this.mapaFoto = new Image()
-		this.mapaFoto.src = foto
+		this.mapaFoto.src = fotomapa
 		this.velocidadX = 0
 		this.velocidadY = 0
+		this.fotoEne = new Image()
+		this.fotoEne.src = fotoMagoEnemigo
+
 	}
+    
+	pintarMago(){
+		lienzo.drawImage(
+			this.mapaFoto,
+			this.x,	
+			this.y,
+			this.ancho,
+			this.alto
+		  )
+	}
+
 }
 
-let Harry = new Mago ('Harry', 'https://media.revistavanityfair.es/photos/60e84a97bb9e71d46fd8d1f4/1:1/w_916,h_916,c_limit/39713.jpg', 5)
-let Hermioni = new Mago ('Hermioni', 'https://static.wikia.nocookie.net/warnerbros/images/f/f7/Hermione2.jpg/revision/latest/scale-to-width-down/373?cb=20221109054851&path-prefix=es', 5)
-let Dumbledore = new Mago ('Dumbledore', 'https://static.wikia.nocookie.net/wikihp/images/8/88/Dumbledore.jpg/revision/latest/scale-to-width-down/423?cb=20090911073332&path-prefix=es', 5)
-let Voldemort = new Mago ('Voldemort', 'https://www.clarin.com/img/2020/09/02/lord-voldemort-es-el-archi___1el72Rtky_1256x620__1.jpg', 5)
-let Neville = new Mago ('Neville', 'https://static.wikia.nocookie.net/esharrypotter/images/2/20/NevilleHBP.jpg/revision/latest/scale-to-width-down/226?cb=20150523213436', 5)
-let Jinny = new Mago ('Jinny', 'https://img.allvipp.com/www-promipool-de/image/upload/c_fill,g_faces,w_1200,h_900,q_auto:eco,f_webp/Bonnie_Wright_asi_se_ve_Ginny_Weasley_de_Harry_Potter_en_2020_1_200722_gh0h9z0jxx', 5)
+let Harry = new Mago ('Harry', 'https://media.revistavanityfair.es/photos/60e84a97bb9e71d46fd8d1f4/1:1/w_916,h_916,c_limit/39713.jpg', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/harryAminado.jpg')
+let Hermioni = new Mago ('Hermioni', 'https://static.wikia.nocookie.net/warnerbros/images/f/f7/Hermione2.jpg/revision/latest/scale-to-width-down/373?cb=20221109054851&path-prefix=es', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/hermioniAnimada.jpg')
+let Dumbledore = new Mago ('Dumbledore', 'https://static.wikia.nocookie.net/wikihp/images/8/88/Dumbledore.jpg/revision/latest/scale-to-width-down/423?cb=20090911073332&path-prefix=es', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/dumbledoreAnimado.jpg')
+let Voldemort = new Mago ('Voldemort', 'https://www.clarin.com/img/2020/09/02/lord-voldemort-es-el-archi___1el72Rtky_1256x620__1.jpg', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/voldemortAnimado.jpg')
+let Neville = new Mago ('Neville', 'https://static.wikia.nocookie.net/esharrypotter/images/2/20/NevilleHBP.jpg/revision/latest/scale-to-width-down/226?cb=20150523213436', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/nevilleAnimado.png')
+let Jinny = new Mago ('Jinny', 'https://img.allvipp.com/www-promipool-de/image/upload/c_fill,g_faces,w_1200,h_900,q_auto:eco,f_webp/Bonnie_Wright_asi_se_ve_Ginny_Weasley_de_Harry_Potter_en_2020_1_200722_gh0h9z0jxx', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/jinnyAnimada.png')
+
+let HarryEnemigo = new Mago ('Harry', 'https://media.revistavanityfair.es/photos/60e84a97bb9e71d46fd8d1f4/1:1/w_916,h_916,c_limit/39713.jpg', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/harryAminado.jpg', 50, 120, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8ljZvjZfupT4f2X8KphHdlw-KkVm98fQw8Q&usqp=CAU')
+let HermioniEnemigo = new Mago ('Hermioni', 'https://static.wikia.nocookie.net/warnerbros/images/f/f7/Hermione2.jpg/revision/latest/scale-to-width-down/373?cb=20221109054851&path-prefix=es', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/hermioniAnimada.jpg', 150, 95, 'https://static0.srcdn.com/wordpress/wp-content/uploads/2018/12/Hermione-Casting-Spell.jpg?q=50&fit=crop&w=738&dpr=1.5%201107w')
+let DumbledoreEnemigo = new Mago ('Dumbledore', 'https://static.wikia.nocookie.net/wikihp/images/8/88/Dumbledore.jpg/revision/latest/scale-to-width-down/423?cb=20090911073332&path-prefix=es', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/dumbledoreAnimado.jpg', 160, 190, 'https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2019/09/expelliarmus-harry-potter.jpg?itok=4Z_55qWw')
+let VoldemortEnemigo = new Mago ('Voldemort', 'https://www.clarin.com/img/2020/09/02/lord-voldemort-es-el-archi___1el72Rtky_1256x620__1.jpg', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/voldemortAnimado.jpg', 250, 100, 'https://sm.ign.com/ign_latam/screenshot/default/avada_w3y8.jpg')
+let NevilleEnemigo = new Mago ('Neville', 'https://static.wikia.nocookie.net/esharrypotter/images/2/20/NevilleHBP.jpg/revision/latest/scale-to-width-down/226?cb=20150523213436', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/nevilleAnimado.png', 400, 150, 'https://static.wikia.nocookie.net/esharrypotter/images/8/89/Neville_con_la_espada.jpg/revision/latest?cb=20120221192537')
+let JinnyEnemigo = new Mago ('Jinny', 'https://img.allvipp.com/www-promipool-de/image/upload/c_fill,g_faces,w_1200,h_900,q_auto:eco,f_webp/Bonnie_Wright_asi_se_ve_Ginny_Weasley_de_Harry_Potter_en_2020_1_200722_gh0h9z0jxx', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/jinnyAnimada.png', 320, 230, 'https://3.bp.blogspot.com/-Z0k7U3CJTt0/TrlGzPuRFUI/AAAAAAAAAFE/cfa39GedGV8/s1600/bonnie+1685.jpg')
 
 magos.push(Harry, Hermioni, Dumbledore, Voldemort, Neville, Jinny)
 
@@ -151,6 +172,77 @@ Jinny.ataques.push(
     { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
 )
 
+HarryEnemigo.ataques.push(
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
+	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
+	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
+	{ nombre: 'Reducto 🤪', id: 'boton-red'},
+	{ nombre: 'Crucio 💦', id: 'boton-cru'},
+	{ nombre: 'Imperio ☘', id: 'boton-imp'},
+    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
+)
+
+HermioniEnemigo.ataques.push(
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
+	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
+	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
+	{ nombre: 'Reducto 🤪', id: 'boton-red'},
+	{ nombre: 'Crucio 💦', id: 'boton-cru'},
+	{ nombre: 'Imperio ☘', id: 'boton-imp'},
+	{ nombre: 'Imperio ☘', id: 'boton-imp'},
+    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
+)
+
+DumbledoreEnemigo.ataques.push(
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
+	{ nombre: 'Reducto 🤪', id: 'boton-red'},
+	{ nombre: 'Reducto 🤪', id: 'boton-red'},
+	{ nombre: 'Crucio 💦', id: 'boton-cru'},
+	{ nombre: 'Imperio ☘', id: 'boton-imp'},
+    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
+)
+
+VoldemortEnemigo.ataques.push(
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
+	{ nombre: 'Reducto 🤪', id: 'boton-red'},
+	{ nombre: 'Crucio 💦', id: 'boton-cru'},
+	{ nombre: 'Imperio ☘', id: 'boton-imp'},
+    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
+	{ nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
+	{ nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
+	{ nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
+)
+
+NevilleEnemigo.ataques.push(
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
+	{ nombre: 'Reducto 🤪', id: 'boton-red'},
+	{ nombre: 'Crucio 💦', id: 'boton-cru'},
+	{ nombre: 'Imperio ☘', id: 'boton-imp'},
+    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
+)
+
+JinnyEnemigo.ataques.push(
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
+	{ nombre: 'Reducto 🤪', id: 'boton-red'},
+	{ nombre: 'Reducto 🤪', id: 'boton-red'},
+	{ nombre: 'Reducto 🤪', id: 'boton-red'},
+	{ nombre: 'Reducto 🤪', id: 'boton-red'},
+	{ nombre: 'Crucio 💦', id: 'boton-cru'},
+	{ nombre: 'Imperio ☘', id: 'boton-imp'},
+    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
+)
 
 
 var img1 = new Image ()
@@ -216,33 +308,27 @@ function seleccionar_mago(){
 	if (inputHarry.checked){
 		spanMago.innerHTML = inputHarry.id
 		magoJugador = inputHarry.id
-		 seleccionar_mago_enemigo()
 		 container.innerHTML = '<img id="foto_mago" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8ljZvjZfupT4f2X8KphHdlw-KkVm98fQw8Q&usqp=CAU" width="250px" height="330px">'
 
 	} else if (inputHermioni.checked){
 		spanMago.innerHTML = inputHermioni.id
 		magoJugador = inputHermioni.id
-		seleccionar_mago_enemigo()
 		container.innerHTML = '<img id="foto_mago" src="https://static0.srcdn.com/wordpress/wp-content/uploads/2018/12/Hermione-Casting-Spell.jpg?q=50&fit=crop&w=738&dpr=1.5%201107w" width="250px" height="330px">'
 	}else if (inputDumbledore.checked){
 		spanMago.innerHTML = inputDumbledore.id
 		magoJugador = inputDumbledore.id
-		seleccionar_mago_enemigo()
 		container.innerHTML = '<img id="foto_mago" src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2019/09/expelliarmus-harry-potter.jpg?itok=4Z_55qWw" width="250px" height="330px">'
 	}else if (inputVoldmort.checked){
 		spanMago.innerHTML = inputVoldmort.id
 		magoJugador = inputVoldmort.id
-		seleccionar_mago_enemigo()
 		container.innerHTML = '<img id="foto_mago" src="https://sm.ign.com/ign_latam/screenshot/default/avada_w3y8.jpg" width="250px" height="330px">'
 	}else if (inputNeville.checked){
 		spanMago.innerHTML = inputNeville.id
 		magoJugador = inputNeville.id
-		seleccionar_mago_enemigo()
 		container.innerHTML = '<img id="foto_mago" src="https://static.wikia.nocookie.net/esharrypotter/images/8/89/Neville_con_la_espada.jpg/revision/latest?cb=20120221192537" width="250px" height="330px">'
 	}else if (inputJinny.checked){
 		spanMago.innerHTML = inputJinny.id
 		magoJugador = inputJinny.id
-		seleccionar_mago_enemigo()
 		container.innerHTML = '<img id="foto_mago" src="https://3.bp.blogspot.com/-Z0k7U3CJTt0/TrlGzPuRFUI/AAAAAAAAAFE/cfa39GedGV8/s1600/bonnie+1685.jpg" width="250px" height="330px">'
 	}else{
 		alert("Selecciona un mago de la lista")
@@ -314,13 +400,14 @@ function secuenciaAtaques(){
 	})
 }
 
-function seleccionar_mago_enemigo(){
+function seleccionar_mago_enemigo(enemigo){
 	let mag = aleatorio(0, magos.length - 1)
-	spanMagoEnemigo.innerHTML = magos[mag].nombre 
-	ataquesMagoEnemigo = magos[mag].ataques
+	spanMagoEnemigo.innerHTML = enemigo.nombre 
+	ataquesMagoEnemigo = enemigo.ataques
+	console.log(enemigo.ataques, enemigo.fotoEne)
 	let container2 = document.getElementById('foto_magoenemigo')
 	container2.innerHTML = `
-                  <img id="foto_magoenemigo" src=${imagenes[mag].src} width="250px" height="330px">'
+                  <img id="foto_magoenemigo" src=${enemigo.fotoEne.src} width="250px" height="330px">'
 				  `
 }
 
@@ -448,13 +535,23 @@ function pintarCanvas() {
 		mapa.width,
 		mapa.height
 	)
-	lienzo.drawImage(
-		magoJugadorObjeto.mapaFoto,
-		magoJugadorObjeto.x,	
-		magoJugadorObjeto.y,
-		magoJugadorObjeto.ancho,
-		magoJugadorObjeto.alto
-	  )
+	magoJugadorObjeto.pintarMago()
+	HarryEnemigo.pintarMago()
+	VoldemortEnemigo.pintarMago()
+	DumbledoreEnemigo.pintarMago()
+	JinnyEnemigo.pintarMago()
+	NevilleEnemigo.pintarMago()
+	HermioniEnemigo.pintarMago()
+
+	if(magoJugadorObjeto.velocidadX !== 0 || magoJugadorObjeto !== 0){
+		revisarColision(VoldemortEnemigo)
+		revisarColision(DumbledoreEnemigo)
+		revisarColision(HarryEnemigo)
+		revisarColision(JinnyEnemigo)
+		revisarColision(NevilleEnemigo)
+		revisarColision(HermioniEnemigo)
+
+	}
 }
 
 function moverDerecha(){
@@ -514,6 +611,36 @@ function obtenerObjetoMago(){
             return magos[i]
 		}
 	}
+}
+
+function revisarColision (enemigo){
+	const arribaEnemigo = enemigo.y
+	const abajoEnemigo = enemigo.y + enemigo.alto
+	const derechaEnemigo = enemigo.x + enemigo.ancho
+	const izquierdaEnemigo = enemigo.x
+
+	const arribaMago = magoJugadorObjeto.y
+	const abajoMago = magoJugadorObjeto.y + magoJugadorObjeto.alto
+	const derechaMago = magoJugadorObjeto.x + magoJugadorObjeto.ancho
+	const izquierdaMago = magoJugadorObjeto.x
+	
+	if(
+		abajoMago < arribaEnemigo ||
+		arribaMago > abajoEnemigo ||
+		derechaMago < izquierdaEnemigo ||
+		izquierdaMago > derechaEnemigo
+	){
+		return 
+	}
+    detenerMovimiento()
+	clearInterval(intervalo)
+	sectionencan.style.display = 'flex'
+    sectionelien.style.display = 'flex'
+    sectionmamae.style.display = 'flex'
+	sectionVerMapa.style.display = 'none'
+    seleccionar_mago_enemigo(enemigo)
+
+	
 }
 
 window.addEventListener('load', iniciarjuego)
