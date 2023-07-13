@@ -93,6 +93,12 @@ input:checked + label{
     
 }
 
+#contenedorAtaques{
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: 150px 150px 150px;
+}
+
 #boton-esp{
     width: 150px;
     height: 150px;
@@ -149,6 +155,17 @@ input:checked + label{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+#ver-mapa button {
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin: 10px 0;
 }
 
 #mapa {
