@@ -30,6 +30,7 @@ let inputNeville
 let inputJinny 
 let imagenes = []
 let magoJugador
+let magoJugadorObjeto
 let ataquesMago 
 let esp
 let pat
@@ -49,11 +50,11 @@ let ataqueEnemigo = []
 let lienzo = mapa.getContext("2d")
 let intervalo
 let mapaBackground = new Image()
-
+mapaBackground.src = '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/mapa.jpg'
 
 
 class Mago {
-	constructor (nombre, foto, vidas){
+	constructor (nombre, foto, vidas, fotomapa, x=10, y=10){
 		this.nombre = nombre
 		this.foto = foto 
 		this.vidas = vidas
@@ -205,8 +206,7 @@ function seleccionar_mago(){
   //sectionencan.style.display = 'flex'
   //sectionelien.style.display = 'flex'
   //sectionmamae.style.display = 'flex'
-  sectionVerMapa.style.display = 'flex'
-  iniciarMapa()
+ 
 
   
   /*lienzo.fillRect(5,15,20,40)
@@ -249,6 +249,8 @@ function seleccionar_mago(){
 		reiniciar()
 	}
 	extraerAtaques(magoJugador)
+	sectionVerMapa.style.display = 'flex'
+	iniciarMapa()
 }
 
 function extraerAtaques(magoJugador) {
@@ -434,42 +436,46 @@ function aleatorio(min, max){
 	return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-function pintarPersonaje() {
-	Harry.x = Harry.x + Harry.velocidadX
-	Harry.y = Harry.y + Harry.velocidadY
+function pintarCanvas() {
+	magoJugadorObjeto.x = magoJugadorObjeto.x + magoJugadorObjeto.velocidadX
+	magoJugadorObjeto.y = magoJugadorObjeto.y + magoJugadorObjeto.velocidadY
 	lienzo.clearRect(0,0, mapa.width, mapa.height)
 	//el parentesis de arriba limita el espacio en el que la funcion de limpiar se va a aplicar
 	lienzo.drawImage(
-		Harry.mapaFoto,
-		Harry.x,	
-		Harry.y,
-		Harry.ancho,
-		Harry.alto
+		mapaBackground,
+		0,
+		0,
+		mapa.width,
+		mapa.height
+	)
+	lienzo.drawImage(
+		magoJugadorObjeto.mapaFoto,
+		magoJugadorObjeto.x,	
+		magoJugadorObjeto.y,
+		magoJugadorObjeto.ancho,
+		magoJugadorObjeto.alto
 	  )
 }
 
 function moverDerecha(){
-	Harry.velocidadX = 5
+	magoJugadorObjeto.velocidadX = 5
 }
 
 function moverIzquierda(){
-	Harry.velocidadX = -5
-    pintarPersonaje()
+	magoJugadorObjeto.velocidadX = -5
 }
 
 function moverArriba(){
-	Harry.velocidadY = - 5
-    pintarPersonaje()
+	magoJugadorObjeto.velocidadY = - 5
 }
 
 function moverAbajo(){
-	Harry.velocidadY = 5
-    pintarPersonaje()
+	magoJugadorObjeto.velocidadY = 5
 }
 
 function detenerMovimiento(){
-	Harry.velocidadX = 0
-	Harry.velocidadY = 0
+	magoJugadorObjeto.velocidadX = 0
+	magoJugadorObjeto.velocidadY = 0
 }
 
 function sePresionaUnaTecla(event) {
@@ -493,13 +499,21 @@ function sePresionaUnaTecla(event) {
 }
 
 function iniciarMapa() {
-mapa.width = 800
-mapa.height = 600
-
-intervalo = setInterval(pintarPersonaje, 50)
+mapa.width = 500
+mapa.height = 330
+magoJugadorObjeto = obtenerObjetoMago(magoJugador)
+intervalo = setInterval(pintarCanvas, 50)
 
   window.addEventListener('keydown', sePresionaUnaTecla)
   window.addEventListener('keyup', detenerMovimiento)
+}
+
+function obtenerObjetoMago(){
+	for (let i=0; i < magos.length; i++){
+		if (magoJugador === magos[i].nombre){
+            return magos[i]
+		}
+	}
 }
 
 window.addEventListener('load', iniciarjuego)
