@@ -456,9 +456,9 @@ function combate(){
 
 	sectionmen.style.display = 'flex'
 	sectionrein.style.display = 'flex'
-	sectionencan.style.display = 'none'
+	//sectionencan.style.display = 'none'
     sectionelien.style.display = 'none'
-    sectionmamae.style.display = 'none'
+    //sectionmamae.style.display = 'none'
 
 	for (let index = 0; index < ataqueJugador.length; index++){
 		if(ataqueJugador[index] === ataqueEnemigo[index]){
@@ -507,11 +507,11 @@ function ultima(){
 	if (ganadas > perdidas){
 		    //bodyto.disabled = true
 	        //sectionrein.style.display = 'flex'
-			conteinerreini.innerHTML =  '<img src="/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/ganaste.png" width="1200px" height="250px">'
+			sectionencan.innerHTML =  '<img src="/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/ganaste.png" width="1200px" height="250px">'
 	} else if (ganadas < perdidas){
 		    //bodyto.disabled = true
 	        //sectionrein.style.display = 'flex'	
-			conteinerreini.innerHTML =  '<img src="/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/perdiste.png" width="1200px" height="250px">'
+			sectionencan.innerHTML =  '<img src="/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/perdiste.png" width="1200px" height="250px">'
 		}else{
 	    //sectionelien.style.display = 'flex'
 	    //sectionencan.style.display = 'flex'
