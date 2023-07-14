@@ -52,23 +52,27 @@ let intervalo
 let mapaBackground = new Image()
 mapaBackground.src = '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/mapa.jpg'
 
-mapa.width = 680
-mapa.height = 450
+
 
 
 
 class Mago {
-	constructor (nombre, foto, vidas, fotomapa, fotoMagoEnemigo){
+	constructor (nombre, foto, vidas, fotomapa, x=10, y=10, fotoMagoEnemigo){
 		this.nombre = nombre
 		this.foto = foto 
 		this.vidas = vidas
 		this.ataques = []
-		this.ancho = 75
-		this.alto = 75
-		this.x = aleatorio(0, mapa.width - this.ancho)
-		this.y = aleatorio(0, mapa.height - this.alto)
+		
+		
+		//aleatorio(0, mapa.width - this.ancho)
+		
+		//aleatorio(0, mapa.height - this.alto)
 		this.mapaFoto = new Image()
 		this.mapaFoto.src = fotomapa
+		this.x = x 
+        this.y = y
+		this.ancho = 75
+		this.alto = 75
 		this.velocidadX = 0
 		this.velocidadY = 0
 		this.fotoEne = new Image()
@@ -95,12 +99,12 @@ let Voldemort = new Mago ('Voldemort', 'https://www.clarin.com/img/2020/09/02/lo
 let Neville = new Mago ('Neville', 'https://static.wikia.nocookie.net/esharrypotter/images/2/20/NevilleHBP.jpg/revision/latest/scale-to-width-down/226?cb=20150523213436', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/nevilleAnimado.png')
 let Jinny = new Mago ('Jinny', 'https://img.allvipp.com/www-promipool-de/image/upload/c_fill,g_faces,w_1200,h_900,q_auto:eco,f_webp/Bonnie_Wright_asi_se_ve_Ginny_Weasley_de_Harry_Potter_en_2020_1_200722_gh0h9z0jxx', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/jinnyAnimada.png')
 
-let HarryEnemigo = new Mago ('Harry', 'https://media.revistavanityfair.es/photos/60e84a97bb9e71d46fd8d1f4/1:1/w_916,h_916,c_limit/39713.jpg', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/harryAminado.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8ljZvjZfupT4f2X8KphHdlw-KkVm98fQw8Q&usqp=CAU')
-let HermioniEnemigo = new Mago ('Hermioni', 'https://static.wikia.nocookie.net/warnerbros/images/f/f7/Hermione2.jpg/revision/latest/scale-to-width-down/373?cb=20221109054851&path-prefix=es', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/hermioniAnimada.jpg', 'https://static0.srcdn.com/wordpress/wp-content/uploads/2018/12/Hermione-Casting-Spell.jpg?q=50&fit=crop&w=738&dpr=1.5%201107w')
-let DumbledoreEnemigo = new Mago ('Dumbledore', 'https://static.wikia.nocookie.net/wikihp/images/8/88/Dumbledore.jpg/revision/latest/scale-to-width-down/423?cb=20090911073332&path-prefix=es', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/dumbledoreAnimado.jpg', 'https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2019/09/expelliarmus-harry-potter.jpg?itok=4Z_55qWw')
-let VoldemortEnemigo = new Mago ('Voldemort', 'https://www.clarin.com/img/2020/09/02/lord-voldemort-es-el-archi___1el72Rtky_1256x620__1.jpg', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/voldemortAnimado.jpg', 'https://sm.ign.com/ign_latam/screenshot/default/avada_w3y8.jpg')
-let NevilleEnemigo = new Mago ('Neville', 'https://static.wikia.nocookie.net/esharrypotter/images/2/20/NevilleHBP.jpg/revision/latest/scale-to-width-down/226?cb=20150523213436', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/nevilleAnimado.png', 'https://static.wikia.nocookie.net/esharrypotter/images/8/89/Neville_con_la_espada.jpg/revision/latest?cb=20120221192537')
-let JinnyEnemigo = new Mago ('Jinny', 'https://img.allvipp.com/www-promipool-de/image/upload/c_fill,g_faces,w_1200,h_900,q_auto:eco,f_webp/Bonnie_Wright_asi_se_ve_Ginny_Weasley_de_Harry_Potter_en_2020_1_200722_gh0h9z0jxx', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/jinnyAnimada.png', 'https://3.bp.blogspot.com/-Z0k7U3CJTt0/TrlGzPuRFUI/AAAAAAAAAFE/cfa39GedGV8/s1600/bonnie+1685.jpg')
+let HarryEnemigo = new Mago ('Harry', 'https://media.revistavanityfair.es/photos/60e84a97bb9e71d46fd8d1f4/1:1/w_916,h_916,c_limit/39713.jpg', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/harryAminado.jpg', 250, 90, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8ljZvjZfupT4f2X8KphHdlw-KkVm98fQw8Q&usqp=CAU')
+let HermioniEnemigo = new Mago ('Hermioni', 'https://static.wikia.nocookie.net/warnerbros/images/f/f7/Hermione2.jpg/revision/latest/scale-to-width-down/373?cb=20221109054851&path-prefix=es', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/hermioniAnimada.jpg', 250, 240, 'https://static0.srcdn.com/wordpress/wp-content/uploads/2018/12/Hermione-Casting-Spell.jpg?q=50&fit=crop&w=738&dpr=1.5%201107w')
+let DumbledoreEnemigo = new Mago ('Dumbledore', 'https://static.wikia.nocookie.net/wikihp/images/8/88/Dumbledore.jpg/revision/latest/scale-to-width-down/423?cb=20090911073332&path-prefix=es', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/dumbledoreAnimado.jpg', 60, 350,'https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2019/09/expelliarmus-harry-potter.jpg?itok=4Z_55qWw')
+let VoldemortEnemigo = new Mago ('Voldemort', 'https://www.clarin.com/img/2020/09/02/lord-voldemort-es-el-archi___1el72Rtky_1256x620__1.jpg', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/voldemortAnimado.jpg',450, 130, 'https://sm.ign.com/ign_latam/screenshot/default/avada_w3y8.jpg')
+let NevilleEnemigo = new Mago ('Neville', 'https://static.wikia.nocookie.net/esharrypotter/images/2/20/NevilleHBP.jpg/revision/latest/scale-to-width-down/226?cb=20150523213436', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/nevilleAnimado.png', 500, 335, 'https://static.wikia.nocookie.net/esharrypotter/images/8/89/Neville_con_la_espada.jpg/revision/latest?cb=20120221192537')
+let JinnyEnemigo = new Mago ('Jinny', 'https://img.allvipp.com/www-promipool-de/image/upload/c_fill,g_faces,w_1200,h_900,q_auto:eco,f_webp/Bonnie_Wright_asi_se_ve_Ginny_Weasley_de_Harry_Potter_en_2020_1_200722_gh0h9z0jxx', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/jinnyAnimada.png', 600, 10, 'https://3.bp.blogspot.com/-Z0k7U3CJTt0/TrlGzPuRFUI/AAAAAAAAAFE/cfa39GedGV8/s1600/bonnie+1685.jpg')
 
 magos.push(Harry, Hermioni, Dumbledore, Voldemort, Neville, Jinny)
 
@@ -526,10 +530,9 @@ function ultima(){
 	    //sectionencan.style.display = 'flex'
 		sectionmen.style.display = 'flex'
             sectionelien.style.display = 'none'
-            sectionencan.style.display = 'flex'
+            sectionencan.style.display = 'none'
 			sectionmamae.style.display = 'flex'
-		sectionVerMapa.style.display = 'flex'
-		iniciarMapa()
+
 	}
 }
 
@@ -542,6 +545,7 @@ function aleatorio(min, max){
 }
 
 function pintarCanvas() {
+	
 	magoJugadorObjeto.x = magoJugadorObjeto.x + magoJugadorObjeto.velocidadX
 	magoJugadorObjeto.y = magoJugadorObjeto.y + magoJugadorObjeto.velocidadY
 	lienzo.clearRect(0,0, mapa.width, mapa.height)
@@ -614,7 +618,8 @@ function sePresionaUnaTecla(event) {
 }
 
 function iniciarMapa() {
-
+mapa.width = 660
+mapa.height = 430
 magoJugadorObjeto = obtenerObjetoMago(magoJugador)
 intervalo = setInterval(pintarCanvas, 50)
 
