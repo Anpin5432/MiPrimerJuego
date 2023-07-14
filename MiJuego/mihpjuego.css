@@ -79,6 +79,11 @@ input:checked + label{
 #mamae{
     display: flex;
 }
+
+#ma{
+    display: flex;
+    color: white;
+}
 #mae{
     display: flex;
     margin-left: 750px;
@@ -148,7 +153,18 @@ input:checked + label{
 
 #Reinicia{
     flex-direction: column;
-    align-items: end;
+    align-items: center;
+}
+
+#Reinicia button{
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin: 10px 0;
 }
 
 #ver-mapa{

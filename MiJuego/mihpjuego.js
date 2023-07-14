@@ -463,18 +463,19 @@ function combate(){
 	for (let index = 0; index < ataqueJugador.length; index++){
 		if(ataqueJugador[index] === ataqueEnemigo[index]){
 			indexAmbosOponente(index, index)
-			crearmensaje("EMPATE")
+			//crearmensaje("EMPATE")
 			spanvidam.innerHTML = ganadas
 			spanvidaene.innerHTML = perdidas
+			
 		} else if (ataqueJugador[index] > ataqueEnemigo[index]){
 			indexAmbosOponente(index, index)
-			crearmensaje("Mago Gana")
+			//crearmensaje("Mago Gana")
 			ganadas++
 			spanvidam.innerHTML = ganadas
 			spanvidaene.innerHTML = perdidas
 		} else if (ataqueJugador[index] < ataqueEnemigo[index]){
 			indexAmbosOponente(index, index)
-			crearmensaje("Mago Enemigo Gana")
+			//crearmensaje("Mago Enemigo Gana")
 			perdidas++
 			spanvidam.innerHTML = ganadas
 			spanvidaene.innerHTML = perdidas
@@ -486,7 +487,7 @@ function combate(){
 	ultima()
 }	
 
-function crearmensaje(ganador){
+/*function crearmensaje(ganador){
 	
 	//sectionmen.style.display = 'flex'
 	let parrafo = document.createElement('p')
@@ -497,7 +498,7 @@ function crearmensaje(ganador){
 	parrafo.innerHTML = 'Tu mago ataco con ' + indexAtaqueJugador + ' y el mago enemigo ataco con ' +indexAtaqueEnemigo+ ' ' +ganador
 	sectionmen.appendChild(parrafo)
 		
-}
+}*/
 
 function ultima(){
 	
@@ -507,14 +508,26 @@ function ultima(){
 	if (ganadas > perdidas){
 		    //bodyto.disabled = true
 	        //sectionrein.style.display = 'flex'
+			sectionmen.style.display = 'flex'
+            sectionelien.style.display = 'none'
+            sectionencan.style.display = 'flex'
+			sectionmamae.style.display = 'flex'
 			sectionencan.innerHTML =  '<img src="/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/ganaste.png" width="1200px" height="250px">'
 	} else if (ganadas < perdidas){
 		    //bodyto.disabled = true
 	        //sectionrein.style.display = 'flex'	
+			sectionmen.style.display = 'flex'
+            sectionelien.style.display = 'none'
+            sectionencan.style.display = 'flex'
+			sectionmamae.style.display = 'flex'
 			sectionencan.innerHTML =  '<img src="/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/perdiste.png" width="1200px" height="250px">'
 		}else{
 	    //sectionelien.style.display = 'flex'
 	    //sectionencan.style.display = 'flex'
+		sectionmen.style.display = 'flex'
+            sectionelien.style.display = 'none'
+            sectionencan.style.display = 'flex'
+			sectionmamae.style.display = 'flex'
 		sectionVerMapa.style.display = 'flex'
 		iniciarMapa()
 	}
@@ -640,7 +653,7 @@ function revisarColision (enemigo){
 	clearInterval(intervalo)
 	sectionencan.style.display = 'flex'
     sectionelien.style.display = 'flex'
-    sectionmamae.style.display = 'flex'
+    //sectionmamae.style.display = 'flex'
 	sectionVerMapa.style.display = 'none'
     seleccionar_mago_enemigo(enemigo)
 
