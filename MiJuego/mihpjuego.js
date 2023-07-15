@@ -20,7 +20,9 @@ let contenedordeMago = document.getElementById('contenedorMagos')
 let contenedorAtaques = document.getElementById('contenedorAtaques')
 
 const sectionVerMapa = document.getElementById('ver-mapa')
+const mapa = document.getElementById('mapa')
 
+let jugadorId = null
 let magos = []
 let inputHarry 
 let inputHermioni 
@@ -294,6 +296,21 @@ function iniciarjuego(){
 	botonMago.addEventListener('click', seleccionar_mago)
     
 	rein.addEventListener('click', reiniciar)
+
+	unirseAlJuego()
+}
+
+function unirseAlJuego(){
+	fetch("http://localhost:8081/unirse")
+	.then(function (res){
+		if (res.ok){
+			res.text()
+			   .then(function(respuesta){
+				   console.log(respuesta)
+				   jugadorId = respuesta
+			   })
+		}
+	})
 }
 
 
@@ -342,9 +359,24 @@ function seleccionar_mago(){
 		alert("Selecciona un mago de la lista")
 		reiniciar()
 	}
+
+	seleccionarMago(magoJugador)
+
 	extraerAtaques(magoJugador)
 	sectionVerMapa.style.display = 'flex'
 	iniciarMapa()
+}
+
+function seleccionarMago(magoJugador){
+	fetch(`http://localhost:8081/mago/${jugadorId}`, {
+		method: "post",
+		headers: {
+			"Content-type": "application/json"
+		},
+		body: JSON.stringify({
+			mago: magoJugador
+		})
+	})
 }
 
 function extraerAtaques(magoJugador) {
