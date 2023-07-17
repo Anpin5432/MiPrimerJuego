@@ -556,7 +556,7 @@ function ultima(){
             sectionelien.style.display = 'none'
             sectionencan.style.display = 'flex'
 			sectionmamae.style.display = 'flex'
-			sectionencan.innerHTML =  '<img src="/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/perdiste.png" width="1200px" height="250px">'
+			sectionencan.innerHTML =  '<img src="/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/perdiste.png" width="1250px" height="250px">'
 		}else{
 	    //sectionelien.style.display = 'flex'
 	    //sectionencan.style.display = 'flex'
@@ -590,6 +590,8 @@ function pintarCanvas() {
 		mapa.height
 	)
 	magoJugadorObjeto.pintarMago()
+    enviarPosicion(magoJugador.x, magoJugador.y)
+
 	HarryEnemigo.pintarMago()
 	VoldemortEnemigo.pintarMago()
 	DumbledoreEnemigo.pintarMago()
@@ -606,6 +608,27 @@ function pintarCanvas() {
 		revisarColision(HermioniEnemigo)
 
 	}
+}
+
+function enviarPosicion(x,y){
+	fetch(`http://localhost:8081/mago/${jugadorId}/posicion`, {
+		method: "post",
+		headers: {
+			"Content-Tyoe": "application/json"
+		},
+		body: JSON.stringify({
+			x,
+			y
+		})
+	})
+	.then(function (res){
+		if(res.ok){
+			res.json()
+			    .then(function({enemigos}){
+					console.log(enemigos)
+				})
+		}
+	})
 }
 
 function moverDerecha(){

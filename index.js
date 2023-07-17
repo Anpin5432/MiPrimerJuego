@@ -16,6 +16,12 @@ class Jugador {
      asignarMago(mago){
         this.mago = mago
      }
+
+     actualizarPosicion(x,y){
+        this.x = x
+        this.y = y
+     }
+
 }
 
 class Mago {
@@ -48,6 +54,27 @@ app.post("/mago/:jugadorId", (req, res) => {
     console.log(jugadores)
     console.log(jugadorId)
     res.end()
+})
+
+app.post("/mago/:jugadorId/posicion", (req, res) => {
+    const jugadorId = req.params.jugadorId || ""
+    const x = req.body.mago || 0
+    const y = req.body.mago || 0
+    
+    const jugadorIndex = jugadores.findIndex((jugador) => jugadorId === jugador.id)
+
+    if(jugadorIndex >= 0){
+        jugadores[jugadorIndex].actualizarPosicion(x,y)
+    }
+
+    const enemigos = jugadores.filter((jugador) => jugadorId !== jugador.id)
+
+    res.send({
+        enemigos
+    })
+
+    res.end()
+
 })
 
 app.listen(8081, () => {
