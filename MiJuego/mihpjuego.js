@@ -101,6 +101,8 @@ let Voldemort = new Mago ('Voldemort', 'https://www.clarin.com/img/2020/09/02/lo
 let Neville = new Mago ('Neville', 'https://static.wikia.nocookie.net/esharrypotter/images/2/20/NevilleHBP.jpg/revision/latest/scale-to-width-down/226?cb=20150523213436', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/nevilleAnimado.png')
 let Jinny = new Mago ('Jinny', 'https://img.allvipp.com/www-promipool-de/image/upload/c_fill,g_faces,w_1200,h_900,q_auto:eco,f_webp/Bonnie_Wright_asi_se_ve_Ginny_Weasley_de_Harry_Potter_en_2020_1_200722_gh0h9z0jxx', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/jinnyAnimada.png')
 
+magos.push(Harry, Hermioni, Dumbledore, Voldemort, Neville, Jinny)
+
 const HARRY_ATAQUES = [
     { nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
 	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
@@ -156,7 +158,6 @@ const VOLDEMORT_ATAQUES = [
 ]
 
 Voldemort.ataques.push(...VOLDEMORT_ATAQUES)
-VoldemortEnemigo.ataques.push(...VOLDEMORT_ATAQUES)
 
 const NEVILLE_ATAQUES = [
 	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
@@ -186,7 +187,7 @@ const JINNY_ATAQUES = [
 
 Jinny.ataques.push(...JINNY_ATAQUES)
 
-magos.push(Harry, Hermioni, Dumbledore, Voldemort, Neville, Jinny)
+
 
 
 var img1 = new Image ()
