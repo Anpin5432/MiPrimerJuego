@@ -101,158 +101,92 @@ let Voldemort = new Mago ('Voldemort', 'https://www.clarin.com/img/2020/09/02/lo
 let Neville = new Mago ('Neville', 'https://static.wikia.nocookie.net/esharrypotter/images/2/20/NevilleHBP.jpg/revision/latest/scale-to-width-down/226?cb=20150523213436', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/nevilleAnimado.png')
 let Jinny = new Mago ('Jinny', 'https://img.allvipp.com/www-promipool-de/image/upload/c_fill,g_faces,w_1200,h_900,q_auto:eco,f_webp/Bonnie_Wright_asi_se_ve_Ginny_Weasley_de_Harry_Potter_en_2020_1_200722_gh0h9z0jxx', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/jinnyAnimada.png')
 
-let HarryEnemigo = new Mago ('Harry', 'https://media.revistavanityfair.es/photos/60e84a97bb9e71d46fd8d1f4/1:1/w_916,h_916,c_limit/39713.jpg', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/harryAminado.jpg', 250, 90, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8ljZvjZfupT4f2X8KphHdlw-KkVm98fQw8Q&usqp=CAU')
-let HermioniEnemigo = new Mago ('Hermioni', 'https://static.wikia.nocookie.net/warnerbros/images/f/f7/Hermione2.jpg/revision/latest/scale-to-width-down/373?cb=20221109054851&path-prefix=es', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/hermioniAnimada.jpg', 250, 240, 'https://static0.srcdn.com/wordpress/wp-content/uploads/2018/12/Hermione-Casting-Spell.jpg?q=50&fit=crop&w=738&dpr=1.5%201107w')
-let DumbledoreEnemigo = new Mago ('Dumbledore', 'https://static.wikia.nocookie.net/wikihp/images/8/88/Dumbledore.jpg/revision/latest/scale-to-width-down/423?cb=20090911073332&path-prefix=es', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/dumbledoreAnimado.jpg', 60, 350,'https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2019/09/expelliarmus-harry-potter.jpg?itok=4Z_55qWw')
-let VoldemortEnemigo = new Mago ('Voldemort', 'https://www.clarin.com/img/2020/09/02/lord-voldemort-es-el-archi___1el72Rtky_1256x620__1.jpg', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/voldemortAnimado.jpg',450, 130, 'https://sm.ign.com/ign_latam/screenshot/default/avada_w3y8.jpg')
-let NevilleEnemigo = new Mago ('Neville', 'https://static.wikia.nocookie.net/esharrypotter/images/2/20/NevilleHBP.jpg/revision/latest/scale-to-width-down/226?cb=20150523213436', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/nevilleAnimado.png', 500, 335, 'https://static.wikia.nocookie.net/esharrypotter/images/8/89/Neville_con_la_espada.jpg/revision/latest?cb=20120221192537')
-let JinnyEnemigo = new Mago ('Jinny', 'https://img.allvipp.com/www-promipool-de/image/upload/c_fill,g_faces,w_1200,h_900,q_auto:eco,f_webp/Bonnie_Wright_asi_se_ve_Ginny_Weasley_de_Harry_Potter_en_2020_1_200722_gh0h9z0jxx', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/jinnyAnimada.png', 600, 10, 'https://3.bp.blogspot.com/-Z0k7U3CJTt0/TrlGzPuRFUI/AAAAAAAAAFE/cfa39GedGV8/s1600/bonnie+1685.jpg')
+const HARRY_ATAQUES = [
+    { nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
+	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
+	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
+	{ nombre: 'Reducto 🤪', id: 'boton-red'},
+	{ nombre: 'Crucio 💦', id: 'boton-cru'},
+	{ nombre: 'Imperio ☘', id: 'boton-imp'},
+    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
+]
+
+Harry.ataques.push(...HARRY_ATAQUES)
+
+const HERMIONI_ATAQUES = [
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
+	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
+	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
+	{ nombre: 'Reducto 🤪', id: 'boton-red'},
+	{ nombre: 'Crucio 💦', id: 'boton-cru'},
+	{ nombre: 'Imperio ☘', id: 'boton-imp'},
+	{ nombre: 'Imperio ☘', id: 'boton-imp'},
+    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
+]
+
+Hermioni.ataques.push(...HERMIONI_ATAQUES)
+
+const DUMBLEDORE_ATAQUES = [
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
+	{ nombre: 'Reducto 🤪', id: 'boton-red'},
+	{ nombre: 'Reducto 🤪', id: 'boton-red'},
+	{ nombre: 'Crucio 💦', id: 'boton-cru'},
+	{ nombre: 'Imperio ☘', id: 'boton-imp'},
+    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
+]
+
+Dumbledore.ataques.push(...DUMBLEDORE_ATAQUES)
+
+const VOLDEMORT_ATAQUES = [
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
+	{ nombre: 'Reducto 🤪', id: 'boton-red'},
+	{ nombre: 'Crucio 💦', id: 'boton-cru'},
+	{ nombre: 'Imperio ☘', id: 'boton-imp'},
+    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
+	{ nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
+	{ nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
+	{ nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
+]
+
+Voldemort.ataques.push(...VOLDEMORT_ATAQUES)
+VoldemortEnemigo.ataques.push(...VOLDEMORT_ATAQUES)
+
+const NEVILLE_ATAQUES = [
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
+	{ nombre: 'Reducto 🤪', id: 'boton-red'},
+	{ nombre: 'Crucio 💦', id: 'boton-cru'},
+	{ nombre: 'Imperio ☘', id: 'boton-imp'},
+    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
+]
+
+Neville.ataques.push(...NEVILLE_ATAQUES)
+
+const JINNY_ATAQUES = [
+	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
+	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
+	{ nombre: 'Reducto 🤪', id: 'boton-red'},
+	{ nombre: 'Reducto 🤪', id: 'boton-red'},
+	{ nombre: 'Reducto 🤪', id: 'boton-red'},
+	{ nombre: 'Reducto 🤪', id: 'boton-red'},
+	{ nombre: 'Crucio 💦', id: 'boton-cru'},
+	{ nombre: 'Imperio ☘', id: 'boton-imp'},
+    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
+]
+
+Jinny.ataques.push(...JINNY_ATAQUES)
 
 magos.push(Harry, Hermioni, Dumbledore, Voldemort, Neville, Jinny)
-
-Harry.ataques.push(
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
-	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
-	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
-	{ nombre: 'Reducto 🤪', id: 'boton-red'},
-	{ nombre: 'Crucio 💦', id: 'boton-cru'},
-	{ nombre: 'Imperio ☘', id: 'boton-imp'},
-    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
-)
-
-Hermioni.ataques.push(
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
-	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
-	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
-	{ nombre: 'Reducto 🤪', id: 'boton-red'},
-	{ nombre: 'Crucio 💦', id: 'boton-cru'},
-	{ nombre: 'Imperio ☘', id: 'boton-imp'},
-	{ nombre: 'Imperio ☘', id: 'boton-imp'},
-    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
-)
-
-Dumbledore.ataques.push(
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
-	{ nombre: 'Reducto 🤪', id: 'boton-red'},
-	{ nombre: 'Reducto 🤪', id: 'boton-red'},
-	{ nombre: 'Crucio 💦', id: 'boton-cru'},
-	{ nombre: 'Imperio ☘', id: 'boton-imp'},
-    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
-)
-
-Voldemort.ataques.push(
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
-	{ nombre: 'Reducto 🤪', id: 'boton-red'},
-	{ nombre: 'Crucio 💦', id: 'boton-cru'},
-	{ nombre: 'Imperio ☘', id: 'boton-imp'},
-    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
-	{ nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
-	{ nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
-	{ nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
-)
-
-Neville.ataques.push(
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
-	{ nombre: 'Reducto 🤪', id: 'boton-red'},
-	{ nombre: 'Crucio 💦', id: 'boton-cru'},
-	{ nombre: 'Imperio ☘', id: 'boton-imp'},
-    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
-)
-
-Jinny.ataques.push(
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
-	{ nombre: 'Reducto 🤪', id: 'boton-red'},
-	{ nombre: 'Reducto 🤪', id: 'boton-red'},
-	{ nombre: 'Reducto 🤪', id: 'boton-red'},
-	{ nombre: 'Reducto 🤪', id: 'boton-red'},
-	{ nombre: 'Crucio 💦', id: 'boton-cru'},
-	{ nombre: 'Imperio ☘', id: 'boton-imp'},
-    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
-)
-
-HarryEnemigo.ataques.push(
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
-	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
-	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
-	{ nombre: 'Reducto 🤪', id: 'boton-red'},
-	{ nombre: 'Crucio 💦', id: 'boton-cru'},
-	{ nombre: 'Imperio ☘', id: 'boton-imp'},
-    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
-)
-
-HermioniEnemigo.ataques.push(
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
-	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
-	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
-	{ nombre: 'Reducto 🤪', id: 'boton-red'},
-	{ nombre: 'Crucio 💦', id: 'boton-cru'},
-	{ nombre: 'Imperio ☘', id: 'boton-imp'},
-	{ nombre: 'Imperio ☘', id: 'boton-imp'},
-    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
-)
-
-DumbledoreEnemigo.ataques.push(
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
-	{ nombre: 'Reducto 🤪', id: 'boton-red'},
-	{ nombre: 'Reducto 🤪', id: 'boton-red'},
-	{ nombre: 'Crucio 💦', id: 'boton-cru'},
-	{ nombre: 'Imperio ☘', id: 'boton-imp'},
-    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
-)
-
-VoldemortEnemigo.ataques.push(
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
-	{ nombre: 'Reducto 🤪', id: 'boton-red'},
-	{ nombre: 'Crucio 💦', id: 'boton-cru'},
-	{ nombre: 'Imperio ☘', id: 'boton-imp'},
-    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
-	{ nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
-	{ nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
-	{ nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
-)
-
-NevilleEnemigo.ataques.push(
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
-	{ nombre: 'Reducto 🤪', id: 'boton-red'},
-	{ nombre: 'Crucio 💦', id: 'boton-cru'},
-	{ nombre: 'Imperio ☘', id: 'boton-imp'},
-    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
-)
-
-JinnyEnemigo.ataques.push(
-	{ nombre: 'Espeliarmus 🧹', id: 'boton-esp'},
-	{ nombre: 'Espectru Patronus 🐘', id: 'boton-pat'},
-	{ nombre: 'Reducto 🤪', id: 'boton-red'},
-	{ nombre: 'Reducto 🤪', id: 'boton-red'},
-	{ nombre: 'Reducto 🤪', id: 'boton-red'},
-	{ nombre: 'Reducto 🤪', id: 'boton-red'},
-	{ nombre: 'Crucio 💦', id: 'boton-cru'},
-	{ nombre: 'Imperio ☘', id: 'boton-imp'},
-    { nombre: 'Avada Kedavra 🔥', id: 'boton-ava'},
-)
 
 
 var img1 = new Image ()
@@ -371,7 +305,7 @@ function seleccionarMago(magoJugador){
 	fetch(`http://localhost:8081/mago/${jugadorId}`, {
 		method: "post",
 		headers: {
-			"Content-type": "application/json"
+			"Content-Type": "application/json"
 		},
 		body: JSON.stringify({
 			mago: magoJugador
@@ -590,7 +524,7 @@ function pintarCanvas() {
 		mapa.height
 	)
 	magoJugadorObjeto.pintarMago()
-    enviarPosicion(magoJugador.x, magoJugador.y)
+    enviarPosicion(magoJugadorObjeto.x, magoJugadorObjeto.y)
 
 	HarryEnemigo.pintarMago()
 	VoldemortEnemigo.pintarMago()
@@ -614,7 +548,7 @@ function enviarPosicion(x,y){
 	fetch(`http://localhost:8081/mago/${jugadorId}/posicion`, {
 		method: "post",
 		headers: {
-			"Content-Tyoe": "application/json"
+			"Content-Type": "application/json"
 		},
 		body: JSON.stringify({
 			x,
@@ -624,9 +558,27 @@ function enviarPosicion(x,y){
 	.then(function (res){
 		if(res.ok){
 			res.json()
-			    .then(function({enemigos}){
+			    .then(function({ enemigos }){
 					console.log(enemigos)
-				})
+					enemigos.forEach(function (enemigo) {
+						let magoNEnemigo = null
+						const magoNombre = enemigo.mago.nombre || ""
+						if (magoNombre === "Harry"){
+							magoNEnemigo = new Mago ('Harry', 'https://media.revistavanityfair.es/photos/60e84a97bb9e71d46fd8d1f4/1:1/w_916,h_916,c_limit/39713.jpg', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/harryAminado.jpg', 250, 90, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8ljZvjZfupT4f2X8KphHdlw-KkVm98fQw8Q&usqp=CAU')
+						} else if(magoNombre === "Hermioni"){
+							magoNEnemigo = new Mago ('Hermioni', 'https://static.wikia.nocookie.net/warnerbros/images/f/f7/Hermione2.jpg/revision/latest/scale-to-width-down/373?cb=20221109054851&path-prefix=es', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/hermioniAnimada.jpg', 250, 240, 'https://static0.srcdn.com/wordpress/wp-content/uploads/2018/12/Hermione-Casting-Spell.jpg?q=50&fit=crop&w=738&dpr=1.5%201107w')
+						} else if(magoNombre === "Dumbledore"){
+                            magoNEnemigo = new Mago ('Dumbledore', 'https://static.wikia.nocookie.net/wikihp/images/8/88/Dumbledore.jpg/revision/latest/scale-to-width-down/423?cb=20090911073332&path-prefix=es', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/dumbledoreAnimado.jpg', 60, 350,'https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2019/09/expelliarmus-harry-potter.jpg?itok=4Z_55qWw')
+						}else if (magoNombre === "Voldemort"){
+                            magoNEnemigo = new Mago ('Voldemort', 'https://www.clarin.com/img/2020/09/02/lord-voldemort-es-el-archi___1el72Rtky_1256x620__1.jpg', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/voldemortAnimado.jpg',450, 130, 'https://sm.ign.com/ign_latam/screenshot/default/avada_w3y8.jpg')
+						}else if (magoNombre === "Neville"){
+                            magoNEnemigo = new Mago ('Neville', 'https://static.wikia.nocookie.net/esharrypotter/images/2/20/NevilleHBP.jpg/revision/latest/scale-to-width-down/226?cb=20150523213436', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/nevilleAnimado.png', 500, 335, 'https://static.wikia.nocookie.net/esharrypotter/images/8/89/Neville_con_la_espada.jpg/revision/latest?cb=20120221192537')
+						}else if (magoNombre === "Jinny"){
+                            magoNEnemigo = new Mago ('Jinny', 'https://img.allvipp.com/www-promipool-de/image/upload/c_fill,g_faces,w_1200,h_900,q_auto:eco,f_webp/Bonnie_Wright_asi_se_ve_Ginny_Weasley_de_Harry_Potter_en_2020_1_200722_gh0h9z0jxx', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/jinnyAnimada.png', 600, 10, 'https://3.bp.blogspot.com/-Z0k7U3CJTt0/TrlGzPuRFUI/AAAAAAAAAFE/cfa39GedGV8/s1600/bonnie+1685.jpg')
+						}
+						magoNEnemigo.pintarMago()
+					})
+			})	
 		}
 	})
 }

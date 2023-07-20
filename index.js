@@ -58,8 +58,8 @@ app.post("/mago/:jugadorId", (req, res) => {
 
 app.post("/mago/:jugadorId/posicion", (req, res) => {
     const jugadorId = req.params.jugadorId || ""
-    const x = req.body.mago || 0
-    const y = req.body.mago || 0
+    const x = req.body.x || 0
+    const y = req.body.y || 0
     
     const jugadorIndex = jugadores.findIndex((jugador) => jugadorId === jugador.id)
 
@@ -72,8 +72,6 @@ app.post("/mago/:jugadorId/posicion", (req, res) => {
     res.send({
         enemigos
     })
-
-    res.end()
 
 })
 
