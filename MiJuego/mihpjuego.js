@@ -24,6 +24,7 @@ const mapa = document.getElementById('mapa')
 
 let jugadorId = null
 let magos = []
+let magosEnemigos = []
 let inputHarry 
 let inputHermioni 
 let inputDumbledore 
@@ -55,11 +56,13 @@ let mapaBackground = new Image()
 mapaBackground.src = '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/mapa.jpg'
 
 
-
+mapa.width = 660
+mapa.height = 430
 
 
 class Mago {
-	constructor (nombre, foto, vidas, fotomapa, x=10, y=10, fotoMagoEnemigo){
+	constructor (nombre, foto, vidas, fotomapa, fotoMagoEnemigo, id = null){
+		this.id = id
 		this.nombre = nombre
 		this.foto = foto 
 		this.vidas = vidas
@@ -71,10 +74,10 @@ class Mago {
 		//aleatorio(0, mapa.height - this.alto)
 		this.mapaFoto = new Image()
 		this.mapaFoto.src = fotomapa
-		this.x = x 
-        this.y = y
 		this.ancho = 75
 		this.alto = 75
+		this.x = aleatorio(0, mapa.width - this.ancho)
+        this.y = aleatorio(0, mapa.height - this.alto)
 		this.velocidadX = 0
 		this.velocidadY = 0
 		this.fotoEne = new Image()
@@ -527,22 +530,10 @@ function pintarCanvas() {
 	magoJugadorObjeto.pintarMago()
     enviarPosicion(magoJugadorObjeto.x, magoJugadorObjeto.y)
 
-	HarryEnemigo.pintarMago()
-	VoldemortEnemigo.pintarMago()
-	DumbledoreEnemigo.pintarMago()
-	JinnyEnemigo.pintarMago()
-	NevilleEnemigo.pintarMago()
-	HermioniEnemigo.pintarMago()
-
-	if(magoJugadorObjeto.velocidadX !== 0 || magoJugadorObjeto !== 0){
-		revisarColision(VoldemortEnemigo)
-		revisarColision(DumbledoreEnemigo)
-		revisarColision(HarryEnemigo)
-		revisarColision(JinnyEnemigo)
-		revisarColision(NevilleEnemigo)
-		revisarColision(HermioniEnemigo)
-
-	}
+	magosEnemigos.forEach(function (mago) {
+		mago.pintarMago()
+		revisarColision(mago)
+	})
 }
 
 function enviarPosicion(x,y){
@@ -561,7 +552,7 @@ function enviarPosicion(x,y){
 			res.json()
 			    .then(function({ enemigos }){
 					console.log(enemigos)
-					enemigos.forEach(function (enemigo) {
+					magosEnemigos = enemigos.map(function (enemigo) {
 						let magoNEnemigo = null
 						const magoNombre = enemigo.mago.nombre || ""
 						if (magoNombre === "Harry"){
@@ -577,7 +568,11 @@ function enviarPosicion(x,y){
 						}else if (magoNombre === "Jinny"){
                             magoNEnemigo = new Mago ('Jinny', 'https://img.allvipp.com/www-promipool-de/image/upload/c_fill,g_faces,w_1200,h_900,q_auto:eco,f_webp/Bonnie_Wright_asi_se_ve_Ginny_Weasley_de_Harry_Potter_en_2020_1_200722_gh0h9z0jxx', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/jinnyAnimada.png', 600, 10, 'https://3.bp.blogspot.com/-Z0k7U3CJTt0/TrlGzPuRFUI/AAAAAAAAAFE/cfa39GedGV8/s1600/bonnie+1685.jpg')
 						}
-						magoNEnemigo.pintarMago()
+
+                        magoNEnemigo.x = enemigo.x
+						magoNEnemigo.y = enemigo.y
+						
+						return magoNEnemigo
 					})
 			})	
 		}
@@ -626,8 +621,7 @@ function sePresionaUnaTecla(event) {
 }
 
 function iniciarMapa() {
-mapa.width = 660
-mapa.height = 430
+
 magoJugadorObjeto = obtenerObjetoMago(magoJugador)
 intervalo = setInterval(pintarCanvas, 50)
 
