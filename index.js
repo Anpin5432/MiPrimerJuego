@@ -22,6 +22,10 @@ class Jugador {
         this.y = y
      }
 
+    asignarAtaques(ataques){
+        this.ataques = ataques
+    } 
+
 }
 
 class Mago {
@@ -73,6 +77,26 @@ app.post("/mago/:jugadorId/posicion", (req, res) => {
         enemigos
     })
 
+})
+
+app.post("/mago/:jugadorId/ataques", (req, res) => {
+    const jugadorId = req.params.jugadorId || ""
+    const ataques = req.body.ataques || []
+
+    const jugadorIndex = jugadores.findIndex((jugador) => jugadorId === jugador.id)
+    
+    if(jugadorIndex >= 0){
+        jugadores[jugadorIndex].asignarAtaques(ataques)
+    }
+    res.end()
+})
+
+app.get("/mago/:jugadorId/ataques", (req, res) => {
+       const jugadorId = req.params.jugadorId || ""
+       const jugador = jugadores.find((jugador) => jugador.id === jugadorId)
+       res.send({
+        ataques: jugador.ataques || []
+       })
 })
 
 app.listen(8081, () => {
