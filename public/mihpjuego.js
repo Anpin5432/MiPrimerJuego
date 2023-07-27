@@ -54,7 +54,7 @@ let ataqueEnemigo = []
 let lienzo = mapa.getContext("2d")
 let intervalo
 let mapaBackground = new Image()
-mapaBackground.src = '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/mapa.jpg'
+mapaBackground.src = '/mapa.jpg'
 
 
 mapa.width = 660
@@ -98,12 +98,12 @@ class Mago {
 
 }
 
-let Harry = new Mago ('Harry', 'https://media.revistavanityfair.es/photos/60e84a97bb9e71d46fd8d1f4/1:1/w_916,h_916,c_limit/39713.jpg', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/harryAminado.jpg')
-let Hermioni = new Mago ('Hermioni', 'https://static.wikia.nocookie.net/warnerbros/images/f/f7/Hermione2.jpg/revision/latest/scale-to-width-down/373?cb=20221109054851&path-prefix=es', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/hermioniAnimada.jpg')
-let Dumbledore = new Mago ('Dumbledore', 'https://static.wikia.nocookie.net/wikihp/images/8/88/Dumbledore.jpg/revision/latest/scale-to-width-down/423?cb=20090911073332&path-prefix=es', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/dumbledoreAnimado.jpg')
-let Voldemort = new Mago ('Voldemort', 'https://www.clarin.com/img/2020/09/02/lord-voldemort-es-el-archi___1el72Rtky_1256x620__1.jpg', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/voldemortAnimado.jpg')
-let Neville = new Mago ('Neville', 'https://static.wikia.nocookie.net/esharrypotter/images/2/20/NevilleHBP.jpg/revision/latest/scale-to-width-down/226?cb=20150523213436', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/nevilleAnimado.png')
-let Jinny = new Mago ('Jinny', 'https://img.allvipp.com/www-promipool-de/image/upload/c_fill,g_faces,w_1200,h_900,q_auto:eco,f_webp/Bonnie_Wright_asi_se_ve_Ginny_Weasley_de_Harry_Potter_en_2020_1_200722_gh0h9z0jxx', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/jinnyAnimada.png')
+let Harry = new Mago ('Harry', 'https://media.revistavanityfair.es/photos/60e84a97bb9e71d46fd8d1f4/1:1/w_916,h_916,c_limit/39713.jpg', 5, '/harryAminado.jpg')
+let Hermioni = new Mago ('Hermioni', 'https://static.wikia.nocookie.net/warnerbros/images/f/f7/Hermione2.jpg/revision/latest/scale-to-width-down/373?cb=20221109054851&path-prefix=es', 5, '/hermioniAnimada.jpg')
+let Dumbledore = new Mago ('Dumbledore', 'https://static.wikia.nocookie.net/wikihp/images/8/88/Dumbledore.jpg/revision/latest/scale-to-width-down/423?cb=20090911073332&path-prefix=es', 5, '/dumbledoreAnimado.jpg')
+let Voldemort = new Mago ('Voldemort', 'https://www.clarin.com/img/2020/09/02/lord-voldemort-es-el-archi___1el72Rtky_1256x620__1.jpg', 5, '/voldemortAnimado.jpg')
+let Neville = new Mago ('Neville', 'https://static.wikia.nocookie.net/esharrypotter/images/2/20/NevilleHBP.jpg/revision/latest/scale-to-width-down/226?cb=20150523213436', 5, '/nevilleAnimado.png')
+let Jinny = new Mago ('Jinny', 'https://img.allvipp.com/www-promipool-de/image/upload/c_fill,g_faces,w_1200,h_900,q_auto:eco,f_webp/Bonnie_Wright_asi_se_ve_Ginny_Weasley_de_Harry_Potter_en_2020_1_200722_gh0h9z0jxx', 5, '/jinnyAnimada.png')
 
 magos.push(Harry, Hermioni, Dumbledore, Voldemort, Neville, Jinny)
 
@@ -240,7 +240,7 @@ function iniciarjuego(){
 }
 
 function unirseAlJuego(){
-	fetch("http://localhost:8081/unirse")
+	fetch("http://Andress-MacBook-Air.local:8081/unirse")
 	.then(function (res){
 		if (res.ok){
 			res.text()
@@ -307,7 +307,7 @@ function seleccionar_mago(){
 }
 
 function seleccionarMago(magoJugador){
-	fetch(`http://localhost:8081/mago/${jugadorId}`, {
+	fetch(`http://Andress-MacBook-Air.local:8081/mago/${jugadorId}`, {
 		method: "post",
 		headers: {
 			"Content-Type": "application/json"
@@ -384,7 +384,7 @@ function secuenciaAtaques(){
 }
 
 function enviarAtaques(){
-	fetch(`http://localhost:8081/mago/${jugadorId}/ataques`, {
+	fetch(`http://Andress-MacBook-Air.local:8081/mago/${jugadorId}/ataques`, {
 		method: "post",
 		headers: {
 			"Content-Type": "application/json"
@@ -398,7 +398,7 @@ function enviarAtaques(){
 }
 
 function obtenerAtaques(){
-	fetch(`http://localhost:8081/mago/${enemigoId}/ataques`)
+	fetch(`http://Andress-MacBook-Air.local:8081/mago/${enemigoId}/ataques`)
 	  .then(function(res) {
 		if (res.ok){
 			res.json()
@@ -524,7 +524,7 @@ function ultima(){
             sectionelien.style.display = 'none'
             sectionencan.style.display = 'flex'
 			sectionmamae.style.display = 'flex'
-			sectionencan.innerHTML =  '<img src="/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/ganaste.png" width="1200px" height="250px">'
+			sectionencan.innerHTML =  '<img src="/ganaste.png" width="1200px" height="250px">'
 	} else if (ganadas < perdidas){
 		    //bodyto.disabled = true
 	        //sectionrein.style.display = 'flex'	
@@ -532,7 +532,7 @@ function ultima(){
             sectionelien.style.display = 'none'
             sectionencan.style.display = 'flex'
 			sectionmamae.style.display = 'flex'
-			sectionencan.innerHTML =  '<img src="/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/perdiste.png" width="1250px" height="250px">'
+			sectionencan.innerHTML =  '<img src="/perdiste.png" width="1250px" height="250px">'
 		}else{
 	    //sectionelien.style.display = 'flex'
 	    //sectionencan.style.display = 'flex'
@@ -575,7 +575,7 @@ function pintarCanvas() {
 }
 
 function enviarPosicion(x,y){
-	fetch(`http://localhost:8081/mago/${jugadorId}/posicion`, {
+	fetch(`http://Andress-MacBook-Air.local:8081/mago/${jugadorId}/posicion`, {
 		method: "post",
 		headers: {
 			"Content-Type": "application/json"
@@ -594,17 +594,17 @@ function enviarPosicion(x,y){
 						let magoNEnemigo = null
 						const magoNombre = enemigo.mago.nombre || ""
 						if (magoNombre === "Harry"){
-							magoNEnemigo = new Mago ('Harry', 'https://media.revistavanityfair.es/photos/60e84a97bb9e71d46fd8d1f4/1:1/w_916,h_916,c_limit/39713.jpg', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/harryAminado.jpg','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8ljZvjZfupT4f2X8KphHdlw-KkVm98fQw8Q&usqp=CAU', enemigo.id)
+							magoNEnemigo = new Mago ('Harry', 'https://media.revistavanityfair.es/photos/60e84a97bb9e71d46fd8d1f4/1:1/w_916,h_916,c_limit/39713.jpg', 5, '/harryAminado.jpg','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8ljZvjZfupT4f2X8KphHdlw-KkVm98fQw8Q&usqp=CAU', enemigo.id)
 						} else if(magoNombre === "Hermioni"){
-							magoNEnemigo = new Mago ('Hermioni', 'https://static.wikia.nocookie.net/warnerbros/images/f/f7/Hermione2.jpg/revision/latest/scale-to-width-down/373?cb=20221109054851&path-prefix=es', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/hermioniAnimada.jpg', 'https://static0.srcdn.com/wordpress/wp-content/uploads/2018/12/Hermione-Casting-Spell.jpg?q=50&fit=crop&w=738&dpr=1.5%201107w', enemigo.id)
+							magoNEnemigo = new Mago ('Hermioni', 'https://static.wikia.nocookie.net/warnerbros/images/f/f7/Hermione2.jpg/revision/latest/scale-to-width-down/373?cb=20221109054851&path-prefix=es', 5, '/hermioniAnimada.jpg', 'https://static0.srcdn.com/wordpress/wp-content/uploads/2018/12/Hermione-Casting-Spell.jpg?q=50&fit=crop&w=738&dpr=1.5%201107w', enemigo.id)
 						} else if(magoNombre === "Dumbledore"){
-                            magoNEnemigo = new Mago ('Dumbledore', 'https://static.wikia.nocookie.net/wikihp/images/8/88/Dumbledore.jpg/revision/latest/scale-to-width-down/423?cb=20090911073332&path-prefix=es', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/dumbledoreAnimado.jpg','https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2019/09/expelliarmus-harry-potter.jpg?itok=4Z_55qWw', enemigo.id)
+                            magoNEnemigo = new Mago ('Dumbledore', 'https://static.wikia.nocookie.net/wikihp/images/8/88/Dumbledore.jpg/revision/latest/scale-to-width-down/423?cb=20090911073332&path-prefix=es', 5, '/dumbledoreAnimado.jpg','https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2019/09/expelliarmus-harry-potter.jpg?itok=4Z_55qWw', enemigo.id)
 						}else if (magoNombre === "Voldemort"){
-                            magoNEnemigo = new Mago ('Voldemort', 'https://www.clarin.com/img/2020/09/02/lord-voldemort-es-el-archi___1el72Rtky_1256x620__1.jpg', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/voldemortAnimado.jpg', 'https://sm.ign.com/ign_latam/screenshot/default/avada_w3y8.jpg', enemigo.id)
+                            magoNEnemigo = new Mago ('Voldemort', 'https://www.clarin.com/img/2020/09/02/lord-voldemort-es-el-archi___1el72Rtky_1256x620__1.jpg', 5, '/voldemortAnimado.jpg', 'https://sm.ign.com/ign_latam/screenshot/default/avada_w3y8.jpg', enemigo.id)
 						}else if (magoNombre === "Neville"){
-                            magoNEnemigo = new Mago ('Neville', 'https://static.wikia.nocookie.net/esharrypotter/images/2/20/NevilleHBP.jpg/revision/latest/scale-to-width-down/226?cb=20150523213436', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/nevilleAnimado.png','https://static.wikia.nocookie.net/esharrypotter/images/8/89/Neville_con_la_espada.jpg/revision/latest?cb=20120221192537', enemigo.id)
+                            magoNEnemigo = new Mago ('Neville', 'https://static.wikia.nocookie.net/esharrypotter/images/2/20/NevilleHBP.jpg/revision/latest/scale-to-width-down/226?cb=20150523213436', 5, '/nevilleAnimado.png','https://static.wikia.nocookie.net/esharrypotter/images/8/89/Neville_con_la_espada.jpg/revision/latest?cb=20120221192537', enemigo.id)
 						}else if (magoNombre === "Jinny"){
-                            magoNEnemigo = new Mago ('Jinny', 'https://img.allvipp.com/www-promipool-de/image/upload/c_fill,g_faces,w_1200,h_900,q_auto:eco,f_webp/Bonnie_Wright_asi_se_ve_Ginny_Weasley_de_Harry_Potter_en_2020_1_200722_gh0h9z0jxx', 5, '/Users/andrespineda/Documents/GitHub/MiPrimerJuego/MiJuego/jinnyAnimada.png','https://3.bp.blogspot.com/-Z0k7U3CJTt0/TrlGzPuRFUI/AAAAAAAAAFE/cfa39GedGV8/s1600/bonnie+1685.jpg', enemigo.id)
+                            magoNEnemigo = new Mago ('Jinny', 'https://img.allvipp.com/www-promipool-de/image/upload/c_fill,g_faces,w_1200,h_900,q_auto:eco,f_webp/Bonnie_Wright_asi_se_ve_Ginny_Weasley_de_Harry_Potter_en_2020_1_200722_gh0h9z0jxx', 5, '/jinnyAnimada.png','https://3.bp.blogspot.com/-Z0k7U3CJTt0/TrlGzPuRFUI/AAAAAAAAAFE/cfa39GedGV8/s1600/bonnie+1685.jpg', enemigo.id)
 						}
 
                         magoNEnemigo.x = enemigo.x
